@@ -1,0 +1,131 @@
+{
+  "ambient_conditions": [
+    {
+      "timestamp": "2024-01-01T00:00:00",
+      "location": "test_location",
+      "dry_bulb_temp_K": 276.5699085099107,
+      "wet_bulb_temp_K": 272.7005891245872,
+      "dew_point_temp_K": 267.5680308958308,
+      "relative_humidity_percent": 51.67187868391828,
+      "absolute_humidity_kg_per_kg": 0.002486001886456365,
+      "wind_speed_m_per_s": 5.447344392755731,
+      "wind_direction_deg": 129.49086385839857,
+      "solar_irradiance_W_per_m2": 0.0,
+      "sky_temperature_K": 250.13008458834852,
+      "barometric_pressure_Pa": 101325.0,
+      "air_density_kg_per_m3": 1.2745997789462893,
+      "enthalpy_kJ_per_kg": 9.673264606705459,
+      "psychrometric_ratio": 0.9860096154127165
+    },
+    {
+      "timestamp": "2024-01-01T06:00:00",
+      "location": "test_location",
+      "dry_bulb_temp_K": 284.5699085099107,
+      "wet_bulb_temp_K": 277.895008901662,
+      "dew_point_temp_K": 269.2674002096378,
+      "relative_humidity_percent": 34.01232653161918,
+      "absolute_humidity_kg_per_kg": 0.002830999611628109,
+      "wind_speed_m_per_s": 7.076410316520786,
+      "wind_direction_deg": 34.66589440740526,
+      "solar_irradiance_W_per_m2": 0,
+      "sky_temperature_K": 258.163863227856,
+      "barometric_pressure_Pa": 101325.0,
+      "air_density_kg_per_m3": 1.238508063643448,
+      "enthalpy_kJ_per_kg": 18.627113200236366,
+      "psychrometric_ratio": 0.9765439021883923
+    },
+    {
+      "timestamp": "2024-01-01T12:00:00",
+      "location": "test_location",
+      "dry_bulb_temp_K": 292.5699085099107,
+      "wet_bulb_temp_K": 283.6225511959214,
+      "dew_point_temp_K": 274.8200807617018,
+      "relative_humidity_percent": 30.60867985873242,
+      "absolute_humidity_kg_per_kg": 0.004267167679004291,
+      "wind_speed_m_per_s": 7.22314097741986,
+      "wind_direction_deg": 274.8987458548945,
+      "solar_irradiance_W_per_m2": 376.96558775638005,
+      "sky_temperature_K": 268.3315361091302,
+      "barometric_pressure_Pa": 101325.0,
+      "air_density_kg_per_m3": 1.2035932488724128,
+      "enthalpy_kJ_per_kg": 30.358191076850417,
+      "psychrometric_ratio": 0.9694180534165009
+    }
+  ],
+  "generation_timestamp": "2025-11-25T02:05:41.270577",
+  "model_parameters": {
+    "temperature_effects": {
+      "cooling_mode": {
+        "capacity_coefficients": [
+          1.0,
+          0.02,
+          -0.0001
+        ],
+        "cop_coefficients": [
+          1.0,
+          -0.015,
+          -5e-05
+        ],
+        "reference_temp_K": 308.15,
+        "min_temp_K": 263.15,
+        "max_temp_K": 323.15
+      },
+      "heating_mode": {
+        "capacity_coefficients": [
+          1.0,
+          -0.025,
+          -0.0002
+        ],
+        "cop_coefficients": [
+          1.0,
+          -0.02,
+          -0.0001
+        ],
+        "reference_temp_K": 281.15,
+        "min_temp_K": 253.15,
+        "max_temp_K": 298.15
+      }
+    },
+    "humidity_effects": {
+      "cooling_mode": {
+        "latent_load_factor": 0.3,
+        "capacity_per_rh_percent": 0.002,
+        "cop_per_rh_percent": -0.001,
+        "frost_threshold_temp_K": 275.15,
+        "frost_rh_threshold": 80.0
+      },
+      "heating_mode": {
+        "defrost_threshold_temp_K": 275.15,
+        "defrost_rh_threshold": 70.0,
+        "capacity_degradation_frost": 0.15,
+        "cop_degradation_frost": 0.2,
+        "defrost_energy_penalty": 0.05
+      }
+    },
+    "wind_effects": {
+      "heat_transfer_enhancement": {
+        "base_coefficient": 1.0,
+        "wind_coefficient": 0.1,
+        "max_enhancement": 1.5,
+        "reference_wind_speed": 2.0
+      },
+      "fan_power_reduction": {
+        "base_power": 1.0,
+        "wind_reduction_factor": 0.05,
+        "max_reduction": 0.3
+      }
+    },
+    "solar_effects": {
+      "condenser_heating": {
+        "absorption_coefficient": 0.7,
+        "surface_area_factor": 0.1,
+        "temperature_rise_per_W_m2": 0.01
+      },
+      "evaporator_heating": {
+        "absorption_coefficient": 0.7,
+        "surface_area_factor": 0.1,
+        "temperature_rise_per_W_m2": 0.01
+      }
+    }
+  }
+}

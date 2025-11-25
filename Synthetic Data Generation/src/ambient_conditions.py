@@ -462,12 +462,14 @@ class AmbientConditionModel:
         """Calculate frost formation risk (0-1 scale)."""
         
         temp_factor = 0.0
-        if ambient.dry_bulb_temp_K < humidity_effects['defrost_threshold_temp_K']:
-            temp_factor = (humidity_effects['defrost_threshold_temp_K'] - ambient.dry_bulb_temp_K) / 10.0
+        defrost_threshold = humidity_effects.get('defrost_threshold_temp_K', 273.15)
+        if ambient.dry_bulb_temp_K < defrost_threshold:
+            temp_factor = (defrost_threshold - ambient.dry_bulb_temp_K) / 10.0
         
         humidity_factor = 0.0
-        if ambient.relative_humidity_percent > humidity_effects['defrost_rh_threshold']:
-            humidity_factor = (ambient.relative_humidity_percent - humidity_effects['defrost_rh_threshold']) / 30.0
+        defrost_rh_threshold = humidity_effects.get('defrost_rh_threshold', 80.0)
+        if ambient.relative_humidity_percent > defrost_rh_threshold:
+            humidity_factor = (ambient.relative_humidity_percent - defrost_rh_threshold) / 30.0
         
         frost_risk = min(1.0, temp_factor * humidity_factor)
         return frost_risk
@@ -668,3 +670,6 @@ if __name__ == "__main__":
     ambient_model.save_ambient_data(weather_data[:24], "ambient_conditions_data.json")
     
     print("\n✅ Ambient condition models testing complete!")
+
+# Alias for compatibility with enhanced data pipeline
+AmbientConditionsModel = AmbientConditionModel

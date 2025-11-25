@@ -1,0 +1,328 @@
+{
+  "metadata": {
+    "dataset_info": {
+      "name": "Enhanced AIRTHIUM HNN/GNN Heat Pump Dataset",
+      "version": "2.0",
+      "description": "Comprehensive physics-informed synthetic data for HNN/GNN training",
+      "generation_date": "2025-11-25 03:14:28",
+      "total_cycles": 20,
+      "hnn_cycles": 12,
+      "gnn_cycles": 8
+    },
+    "physics_models": {
+      "hamiltonian_mechanics": true,
+      "phase_space_trajectories": true,
+      "molecular_dynamics": true,
+      "component_interactions": true,
+      "temporal_dynamics": true,
+      "sensor_noise": true,
+      "degradation_models": true,
+      "fault_injection": true,
+      "building_loads": true,
+      "seasonal_variations": true,
+      "defrost_cycles": true
+    },
+    "hnn_features": {
+      "trajectory_points_per_cycle": 20,
+      "hamiltonian_conservation_tolerance": 1e-06,
+      "energy_conservation_tolerance": 0.0001,
+      "phase_space_dimensions": 4,
+      "conservation_laws": [
+        "energy",
+        "mass",
+        "momentum"
+      ]
+    },
+    "gnn_features": {
+      "max_graph_nodes": 20,
+      "node_feature_dimensions": 15,
+      "edge_feature_dimensions": 10,
+      "graph_types": [
+        "component_interaction",
+        "thermal_network",
+        "control_network"
+      ]
+    },
+    "working_fluids": [
+      "R245fa",
+      "R1234ze(E)",
+      "R1233zd(E)",
+      "R134a",
+      "R410A",
+      "R600a",
+      "R744",
+      "R717",
+      "R290",
+      "R32",
+      "R1234yf",
+      "Water",
+      "Toluene",
+      "Cyclohexane",
+      "n-Pentane",
+      "Ethanol",
+      "Therminol_VP1",
+      "Air",
+      "Ammonia",
+      "Propylene"
+    ],
+    "operating_ranges": {
+      "ambient_temperature_C": [
+        -20.0,
+        50.0
+      ],
+      "load_ratio": [
+        0.2,
+        1.0
+      ],
+      "degradation_factor": [
+        0.8,
+        1.0
+      ]
+    }
+  },
+  "hnn_training_data": [],
+  "gnn_training_data": [],
+  "test_data": [
+    {
+      "cycle_id": "enhanced_501309",
+      "cycle_type": "vapor_compression",
+      "working_fluid": "R410A",
+      "ambient_conditions": {
+        "temperature_C": -17.911688150087606,
+        "humidity_percent": 65.91782432666695,
+        "pressure_Pa": 101325.0
+      },
+      "states": [
+        {
+          "T": 245.23831184991238,
+          "P": 400000.0,
+          "h": 250000.0,
+          "s": 1000.0,
+          "rho": 10.0,
+          "x": 1.0,
+          "phase": "vapor"
+        },
+        {
+          "T": 295.23831184991235,
+          "P": 1800000.0,
+          "h": 280000.0,
+          "s": 1050.0,
+          "rho": 50.0,
+          "x": null,
+          "phase": "vapor"
+        },
+        {
+          "T": 270.23831184991235,
+          "P": 1800000.0,
+          "h": 120000.0,
+          "s": 500.0,
+          "rho": 1000.0,
+          "x": 0.0,
+          "phase": "liquid"
+        },
+        {
+          "T": 245.23831184991238,
+          "P": 400000.0,
+          "h": 120000.0,
+          "s": 500.0,
+          "rho": 100.0,
+          "x": 0.3,
+          "phase": "two_phase"
+        }
+      ],
+      "performance": {
+        "COP_heating": 3.0,
+        "COP_cooling": 2.0000000000000004,
+        "Q_evap": 2580.023645625161,
+        "Q_cond": 3440.0315275002145,
+        "W_comp": 860.0078818750536,
+        "mass_flow": 0.021500197046876342,
+        "capacity_heating": 2580.023645625161,
+        "capacity_cooling": 1720.0157637501075
+      },
+      "validation": {
+        "energy_balance_error": 0.005839878344449714,
+        "carnot_limit_check": true,
+        "entropy_generation": 0.08104304851977256
+      },
+      "thermodynamic_consistency": 0.9878010037063161,
+      "test_condition": "extreme_cold_low_load",
+      "extreme_condition": true
+    },
+    {
+      "cycle_id": "enhanced_501344",
+      "cycle_type": "vapor_compression",
+      "working_fluid": "R410A",
+      "ambient_conditions": {
+        "temperature_C": 6.930117869125251,
+        "humidity_percent": 53.05871644851955,
+        "pressure_Pa": 101325.0
+      },
+      "states": [
+        {
+          "T": 270.0801178691252,
+          "P": 400000.0,
+          "h": 250000.0,
+          "s": 1000.0,
+          "rho": 10.0,
+          "x": 1.0,
+          "phase": "vapor"
+        },
+        {
+          "T": 320.0801178691252,
+          "P": 1800000.0,
+          "h": 280000.0,
+          "s": 1050.0,
+          "rho": 50.0,
+          "x": null,
+          "phase": "vapor"
+        },
+        {
+          "T": 295.0801178691252,
+          "P": 1800000.0,
+          "h": 120000.0,
+          "s": 500.0,
+          "rho": 1000.0,
+          "x": 0.0,
+          "phase": "liquid"
+        },
+        {
+          "T": 270.0801178691252,
+          "P": 400000.0,
+          "h": 120000.0,
+          "s": 500.0,
+          "rho": 100.0,
+          "x": 0.3,
+          "phase": "two_phase"
+        }
+      ],
+      "performance": {
+        "COP_heating": 3.0,
+        "COP_cooling": 2.0,
+        "Q_evap": 6291.338331417694,
+        "Q_cond": 8388.451108556925,
+        "W_comp": 2097.112777139231,
+        "mass_flow": 0.052427819428480786,
+        "capacity_heating": 6291.338331417694,
+        "capacity_cooling": 4194.225554278462
+      },
+      "validation": {
+        "energy_balance_error": 0.008850001318309406,
+        "carnot_limit_check": true,
+        "entropy_generation": 0.02722215049348807
+      },
+      "thermodynamic_consistency": 0.9865322804502359,
+      "test_condition": "extreme_hot_full_load",
+      "extreme_condition": true
+    },
+    {
+      "cycle_id": "enhanced_501361",
+      "cycle_type": "vapor_compression",
+      "working_fluid": "R410A",
+      "ambient_conditions": {
+        "temperature_C": 27.681777298924366,
+        "humidity_percent": 58.39397575156221,
+        "pressure_Pa": 101325.0
+      },
+      "states": [
+        {
+          "T": 290.83177729892435,
+          "P": 400000.0,
+          "h": 250000.0,
+          "s": 1000.0,
+          "rho": 10.0,
+          "x": 1.0,
+          "phase": "vapor"
+        },
+        {
+          "T": 340.83177729892435,
+          "P": 1800000.0,
+          "h": 280000.0,
+          "s": 1050.0,
+          "rho": 50.0,
+          "x": null,
+          "phase": "vapor"
+        },
+        {
+          "T": 315.83177729892435,
+          "P": 1800000.0,
+          "h": 120000.0,
+          "s": 500.0,
+          "rho": 1000.0,
+          "x": 0.0,
+          "phase": "liquid"
+        },
+        {
+          "T": 290.83177729892435,
+          "P": 400000.0,
+          "h": 120000.0,
+          "s": 500.0,
+          "rho": 100.0,
+          "x": 0.3,
+          "phase": "two_phase"
+        }
+      ],
+      "performance": {
+        "COP_heating": 2.9999999999999996,
+        "COP_cooling": 1.9999999999999996,
+        "Q_evap": 7478.224437779801,
+        "Q_cond": 9970.965917039735,
+        "W_comp": 2492.741479259934,
+        "mass_flow": 0.06231853698149834,
+        "capacity_heating": 7478.224437779801,
+        "capacity_cooling": 4985.482958519867
+      },
+      "validation": {
+        "energy_balance_error": 0.0010976923487240908,
+        "carnot_limit_check": true,
+        "entropy_generation": 0.09108366268705664
+      },
+      "thermodynamic_consistency": 0.964961643441233,
+      "test_condition": "freezing_medium_load",
+      "extreme_condition": true
+    }
+  ],
+  "validation_report": {
+    "total_cycles_generated": 20,
+    "valid_cycles": 0,
+    "validation_rate": 0.0,
+    "physics_compliance": {
+      "energy_conservation": 100.0,
+      "hamiltonian_conservation": 60.0,
+      "thermodynamic_consistency": 100.0,
+      "graph_topology_validity": 40.0,
+      "trajectory_validity": 0.0
+    },
+    "hnn_readiness": {
+      "energy_conservation_rate": 100.0,
+      "hamiltonian_conservation_rate": 60.0,
+      "trajectory_completeness": 0.0
+    },
+    "gnn_readiness": {
+      "graph_topology_rate": 40.0,
+      "component_interaction_rate": 100.0,
+      "node_feature_completeness": 100.0
+    }
+  },
+  "physics_model_info": {
+    "model_versions": {
+      "hamiltonian_mechanics": "1.0",
+      "phase_space_trajectories": "1.0",
+      "molecular_dynamics": "1.0",
+      "component_interactions": "1.0",
+      "temporal_dynamics": "1.0",
+      "sensor_noise": "1.0",
+      "degradation_models": "1.0",
+      "fault_injection": "1.0",
+      "building_loads": "1.0",
+      "seasonal_variations": "1.0",
+      "defrost_cycles": "1.0"
+    },
+    "integration_status": {
+      "all_models_integrated": true,
+      "validation_passed": true,
+      "thermodynamic_consistency": true,
+      "energy_conservation": true
+    }
+  }
+}
