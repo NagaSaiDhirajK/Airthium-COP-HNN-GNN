@@ -1090,3 +1090,6 @@ if __name__ == "__main__":
     generator.visualize_graph(system_graph, "test_graph_visualization.png")
     
     print("\n✅ GNN topology implementation complete!")
+
+# Alias for compatibility with enhanced data pipeline
+GNNTopologyGenerator = HeatPumpGraphGenerator

@@ -1,0 +1,135 @@
+{
+  "wear_states": [
+    {
+      "component_id": "test_scroll_001",
+      "compressor_type": "scroll_compressor",
+      "age_hours": 1000,
+      "bearing_wear_percentage": 0.7684945286394681,
+      "bearing_clearance": 0.05076849452863947,
+      "bearing_temperature_rise": 3.162113236874356,
+      "valve_leakage_percentage": 0.4801456797703308,
+      "suction_valve_condition": 0.9903970864045933,
+      "discharge_valve_condition": 0.9919975720038278,
+      "oil_quality_index": 0.8534217560858742,
+      "oil_viscosity_change": -2.9315648782825154,
+      "oil_contamination_level": 14.657824391412577,
+      "efficiency_degradation": 3.402240162567221,
+      "capacity_degradation": 1.19388425915469,
+      "power_increase": 2.496459537017039,
+      "vibration_level": 1.8265774945459066,
+      "noise_level": 0.29774260965899285,
+      "discharge_temperature_rise": 3.162113236874356,
+      "maintenance_events": [],
+      "fault_indicators": {
+        "bearing_fault_probability": 0.009606181607993352,
+        "valve_fault_probability": 0.00800242799617218,
+        "oil_system_fault_probability": 0.20939749130589397,
+        "overall_fault_probability": 0.22325812642350362,
+        "remaining_useful_life_hours": 7475.974583312258
+      }
+    },
+    {
+      "component_id": "test_recip_001",
+      "compressor_type": "reciprocating_compressor",
+      "age_hours": 7000,
+      "bearing_wear_percentage": 6.351193835195643,
+      "bearing_clearance": 0.05635119383519564,
+      "bearing_temperature_rise": 10.56325920090941,
+      "valve_leakage_percentage": 4.843152028307212,
+      "suction_valve_condition": 0.9031369594338557,
+      "discharge_valve_condition": 0.9192807995282132,
+      "oil_quality_index": 0.5671049474824641,
+      "oil_viscosity_change": -8.657901050350718,
+      "oil_contamination_level": 43.28950525175359,
+      "efficiency_degradation": 12.998150979132836,
+      "capacity_degradation": 6.680774150787922,
+      "power_increase": 9.227262774550185,
+      "vibration_level": 4.3739885562201355,
+      "noise_level": 2.723184375531292,
+      "discharge_temperature_rise": 10.56325920090941,
+      "maintenance_events": [],
+      "fault_indicators": {
+        "bearing_fault_probability": 0.07938992293994554,
+        "valve_fault_probability": 0.08071920047178686,
+        "oil_system_fault_probability": 0.6184215035964798,
+        "overall_fault_probability": 0.6770704360839649,
+        "remaining_useful_life_hours": 4967.839339946386
+      }
+    }
+  ],
+  "generation_timestamp": "2025-11-25T02:20:51.719578",
+  "model_parameters": {
+    "scroll_compressor": {
+      "bearing_wear": {
+        "initial_rate": 0.5,
+        "acceleration_factor": 1.2,
+        "failure_threshold": 80.0,
+        "temperature_factor": 0.02,
+        "load_factor": 0.01,
+        "maintenance_effectiveness": 0.3
+      },
+      "valve_leakage": {
+        "initial_rate": 0.3,
+        "acceleration_factor": 1.5,
+        "failure_threshold": 60.0,
+        "pressure_factor": 0.01,
+        "cycling_factor": 0.001,
+        "maintenance_effectiveness": 0.8
+      },
+      "oil_degradation": {
+        "initial_rate": 1.0,
+        "acceleration_factor": 1.1,
+        "failure_threshold": 70.0,
+        "temperature_factor": 0.05,
+        "contamination_factor": 0.02,
+        "maintenance_effectiveness": 0.95
+      }
+    },
+    "reciprocating_compressor": {
+      "bearing_wear": {
+        "initial_rate": 0.8,
+        "acceleration_factor": 1.3,
+        "failure_threshold": 75.0,
+        "temperature_factor": 0.03,
+        "load_factor": 0.015,
+        "maintenance_effectiveness": 0.4
+      },
+      "valve_leakage": {
+        "initial_rate": 0.6,
+        "acceleration_factor": 1.4,
+        "failure_threshold": 50.0,
+        "pressure_factor": 0.015,
+        "cycling_factor": 0.002,
+        "maintenance_effectiveness": 0.7
+      },
+      "oil_degradation": {
+        "initial_rate": 1.2,
+        "acceleration_factor": 1.2,
+        "failure_threshold": 65.0,
+        "temperature_factor": 0.06,
+        "contamination_factor": 0.025,
+        "maintenance_effectiveness": 0.9
+      }
+    }
+  },
+  "performance_impacts": {
+    "efficiency_degradation": {
+      "bearing_coefficient": 0.3,
+      "valve_coefficient": 0.5,
+      "oil_coefficient": 0.2,
+      "interaction_factor": 0.1
+    },
+    "capacity_degradation": {
+      "bearing_coefficient": 0.1,
+      "valve_coefficient": 0.8,
+      "oil_coefficient": 0.05,
+      "interaction_factor": 0.05
+    },
+    "power_increase": {
+      "bearing_coefficient": 0.2,
+      "valve_coefficient": 0.3,
+      "oil_coefficient": 0.15,
+      "interaction_factor": 0.08
+    }
+  }
+}

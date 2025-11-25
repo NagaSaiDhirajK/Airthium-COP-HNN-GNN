@@ -382,26 +382,25 @@ class RefrigerantChargeModel:
     def _calculate_saturation_pressure(self, refrigerant: str, temperature_K: float) -> float:
         """Calculate saturation pressure for given refrigerant and temperature."""
         
-        # Simplified Antoine equation coefficients for common refrigerants
-        # In practice, would use NIST REFPROP or CoolProp
-        antoine_coeffs = {
-            'R410A': {'A': 8.95, 'B': 1750, 'C': -40},  # Approximate for R410A blend
-            'R32': {'A': 8.85, 'B': 1650, 'C': -35},
-            'R134a': {'A': 8.89, 'B': 1729, 'C': -33}
-        }
-        
-        if refrigerant not in antoine_coeffs:
-            refrigerant = 'R410A'
-        
-        coeffs = antoine_coeffs[refrigerant]
-        
-        # Antoine equation: log10(P) = A - B/(T + C)
-        # P in bar, T in Celsius
+        # Simplified pressure correlations for common refrigerants
+        # Using more stable polynomial approximations instead of Antoine equation
         T_celsius = temperature_K - 273.15
-        log_p = coeffs['A'] - coeffs['B'] / (T_celsius + coeffs['C'])
-        pressure_bar = 10 ** log_p / 10  # Convert from mmHg to bar (approximate)
         
-        return max(0.1, pressure_bar)
+        # Clamp temperature to reasonable range
+        T_celsius = max(-50, min(100, T_celsius))
+        
+        if refrigerant == 'R32':
+            # Polynomial approximation for R32 (0-50°C range)
+            pressure_bar = max(0.1, 0.5 + 0.15 * T_celsius + 0.002 * T_celsius**2)
+        elif refrigerant == 'R134a':
+            # Polynomial approximation for R134a
+            pressure_bar = max(0.1, 0.3 + 0.12 * T_celsius + 0.0015 * T_celsius**2)
+        else:  # R410A default
+            # Polynomial approximation for R410A
+            pressure_bar = max(0.1, 0.8 + 0.18 * T_celsius + 0.0025 * T_celsius**2)
+        
+        # Reasonable bounds for refrigerant pressures
+        return max(0.1, min(50.0, pressure_bar))
     
     def calculate_charge_impact_on_cop(self, charge_state: RefrigerantChargeState,
                                      operating_mode: str = 'cooling') -> float:

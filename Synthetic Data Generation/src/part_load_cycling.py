@@ -593,15 +593,38 @@ class PartLoadCyclingModel:
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # Convert to serializable format
+        # Convert to serializable format with proper handling of numpy types
+        def convert_to_serializable(obj):
+            """Convert numpy types and other non-serializable objects to JSON-compatible types."""
+            if isinstance(obj, np.bool_):
+                return bool(obj)
+            elif isinstance(obj, np.integer):
+                return int(obj)
+            elif isinstance(obj, np.floating):
+                return float(obj)
+            elif isinstance(obj, np.ndarray):
+                return obj.tolist()
+            elif isinstance(obj, dict):
+                return {k: convert_to_serializable(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_to_serializable(item) for item in obj]
+            else:
+                return obj
+        
+        # Convert states to dictionaries and make them serializable
+        serializable_states = []
+        for state in part_load_states:
+            state_dict = asdict(state)
+            serializable_states.append(convert_to_serializable(state_dict))
+        
         data = {
-            'part_load_states': [asdict(state) for state in part_load_states],
+            'part_load_states': serializable_states,
             'generation_timestamp': pd.Timestamp.now().isoformat(),
             'model_parameters': {
                 'part_load_curves': {k: 'function' for k in self.part_load_curves.keys()},
-                'cycling_degradation': self.cycling_degradation,
-                'control_parameters': self.control_parameters,
-                'thermal_mass_effects': self.thermal_mass_effects
+                'cycling_degradation': convert_to_serializable(self.cycling_degradation),
+                'control_parameters': convert_to_serializable(self.control_parameters),
+                'thermal_mass_effects': convert_to_serializable(self.thermal_mass_effects)
             }
         }
         
