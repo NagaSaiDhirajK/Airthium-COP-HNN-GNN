@@ -30,20 +30,20 @@ class ImprovedCycleGenerator:
             'Water', 'Toluene', 'Cyclohexane', 'n-Pentane', 'Ethanol'
         ]
         
-        # Fluid-specific operating envelopes (conservative ranges)
+        # Fluid-specific operating envelopes (very conservative ranges for Carnot cycle stability)
         self.fluid_envelopes = {
-            'R245fa': {'T_evap_range': (268.15, 288.15), 'T_cond_range': (318.15, 348.15)},  # -5 to 15°C evap, 45-75°C cond
-            'R134a': {'T_evap_range': (263.15, 283.15), 'T_cond_range': (313.15, 343.15)},   # -10 to 10°C evap, 40-70°C cond
-            'R410A': {'T_evap_range': (258.15, 278.15), 'T_cond_range': (318.15, 348.15)},   # -15 to 5°C evap, 45-75°C cond
-            'R600a': {'T_evap_range': (268.15, 288.15), 'T_cond_range': (313.15, 343.15)},   # -5 to 15°C evap, 40-70°C cond
-            'R290': {'T_evap_range': (263.15, 283.15), 'T_cond_range': (313.15, 343.15)},    # -10 to 10°C evap, 40-70°C cond
-            'R1234ze(E)': {'T_evap_range': (268.15, 288.15), 'T_cond_range': (318.15, 348.15)},
-            'R1233zd(E)': {'T_evap_range': (273.15, 293.15), 'T_cond_range': (323.15, 353.15)},
-            'Water': {'T_evap_range': (353.15, 373.15), 'T_cond_range': (373.15, 423.15)},   # Steam cycles
-            'Toluene': {'T_evap_range': (293.15, 323.15), 'T_cond_range': (343.15, 373.15)}, # ORC
-            'Cyclohexane': {'T_evap_range': (293.15, 323.15), 'T_cond_range': (343.15, 373.15)},
-            'n-Pentane': {'T_evap_range': (283.15, 313.15), 'T_cond_range': (333.15, 363.15)},
-            'Ethanol': {'T_evap_range': (293.15, 323.15), 'T_cond_range': (343.15, 373.15)}
+            'R245fa': {'T_evap_range': (273.15, 283.15), 'T_cond_range': (318.15, 333.15)},  # 0 to 10°C evap, 45-60°C cond
+            'R134a': {'T_evap_range': (268.15, 278.15), 'T_cond_range': (313.15, 328.15)},   # -5 to 5°C evap, 40-55°C cond
+            'R410A': {'T_evap_range': (263.15, 273.15), 'T_cond_range': (313.15, 328.15)},   # -10 to 0°C evap, 40-55°C cond
+            'R600a': {'T_evap_range': (273.15, 283.15), 'T_cond_range': (318.15, 333.15)},   # 0 to 10°C evap, 45-60°C cond
+            'R290': {'T_evap_range': (268.15, 278.15), 'T_cond_range': (313.15, 328.15)},    # -5 to 5°C evap, 40-55°C cond
+            'R1234ze(E)': {'T_evap_range': (273.15, 283.15), 'T_cond_range': (318.15, 333.15)},
+            'R1233zd(E)': {'T_evap_range': (278.15, 288.15), 'T_cond_range': (323.15, 338.15)},
+            'Water': {'T_evap_range': (353.15, 363.15), 'T_cond_range': (373.15, 393.15)},   # Steam cycles (narrower)
+            'Toluene': {'T_evap_range': (298.15, 313.15), 'T_cond_range': (343.15, 358.15)}, # ORC (narrower)
+            'Cyclohexane': {'T_evap_range': (298.15, 313.15), 'T_cond_range': (343.15, 358.15)},
+            'n-Pentane': {'T_evap_range': (288.15, 303.15), 'T_cond_range': (333.15, 348.15)},
+            'Ethanol': {'T_evap_range': (298.15, 313.15), 'T_cond_range': (343.15, 358.15)}
         }
         
         # Initialize cycle classes
@@ -55,7 +55,7 @@ class ImprovedCycleGenerator:
             CycleType.ORC: lambda fluid: RankineCycle(fluid, ideal=False),
         }
     
-    def generate_physics_constrained_parameters(self, cycle_type: CycleType, 
+    def generate_physics_constrained_parameters(self, cycle_type: CycleType,
                                               fluid_name: str) -> CycleParameters:
         """
         Generate thermodynamically feasible parameters with high success rate
@@ -65,6 +65,7 @@ class ImprovedCycleGenerator:
         2. Physics-constrained temperature lifts
         3. Realistic component efficiencies
         4. Conservative pressure ranges
+        5. Cycle-specific optimizations
         """
         
         # Get fluid envelope or use defaults
@@ -80,51 +81,90 @@ class ImprovedCycleGenerator:
         # Generate evaporator temperature
         T_evap = np.random.uniform(T_evap_min, T_evap_max)
         
-        # Generate condenser temperature with physics constraints
-        min_temp_lift = 25.0  # Minimum 25K temperature difference
-        max_temp_lift = 50.0  # Maximum 50K for good efficiency
-        optimal_temp_lift = 35.0  # Target around 35K
+        # Cycle-specific temperature lift constraints
+        if cycle_type == CycleType.CARNOT:
+            # Carnot cycles need very conservative temperature lifts
+            min_temp_lift = 25.0  # Minimum 25K temperature difference
+            max_temp_lift = 50.0  # Maximum 50K for Carnot stability (reduced from 60K)
+            optimal_temp_lift = 35.0  # Target around 35K for good COP (reduced from 40K)
+            temp_lift_std = 6.0   # Smaller standard deviation (reduced from 10K)
+        else:
+            # Rankine and other cycles can handle wider ranges
+            min_temp_lift = 20.0  # Minimum 20K temperature difference
+            max_temp_lift = 70.0  # Maximum 70K for other cycles
+            optimal_temp_lift = 35.0  # Target around 35K
+            temp_lift_std = 12.0  # Standard deviation
         
-        # Bias towards optimal temperature lift
-        temp_lift = np.random.normal(optimal_temp_lift, 8.0)  # Normal distribution around 35K
+        # Bias towards optimal temperature lift with cycle-specific parameters
+        temp_lift = np.random.normal(optimal_temp_lift, temp_lift_std)
         temp_lift = np.clip(temp_lift, min_temp_lift, max_temp_lift)
         
         T_cond = T_evap + temp_lift
         T_cond = np.clip(T_cond, T_cond_min, T_cond_max)
         
-        # Validate against fluid critical temperature if available
-        try:
-            fluid = get_fluid_properties(fluid_name)
-            if hasattr(fluid, 'T_crit') and fluid.T_crit:
-                T_max_safe = fluid.T_crit * 0.85  # 85% of critical temperature
-                if T_cond > T_max_safe:
-                    T_cond = T_max_safe - np.random.uniform(10, 20)
-                if T_evap > T_max_safe * 0.70:
-                    T_evap = T_max_safe * 0.70 - np.random.uniform(5, 15)
-        except:
-            pass  # Use envelope limits if fluid properties unavailable
+        # Double-check temperature difference for Carnot cycles
+        if cycle_type == CycleType.CARNOT:
+            actual_temp_lift = T_cond - T_evap
+            if actual_temp_lift > max_temp_lift:
+                T_cond = T_evap + max_temp_lift - np.random.uniform(2, 5)  # Add some margin
+            elif actual_temp_lift < min_temp_lift:
+                T_cond = T_evap + min_temp_lift + np.random.uniform(2, 5)  # Add some margin
+        
+        # For Carnot cycles, skip critical temperature validation to avoid overriding envelope constraints
+        if cycle_type != CycleType.CARNOT:
+            # Validate against fluid critical temperature if available (only for non-Carnot cycles)
+            try:
+                fluid = get_fluid_properties(fluid_name)
+                if hasattr(fluid, 'T_crit') and fluid.T_crit:
+                    safety_factor = 0.85
+                    T_max_safe = fluid.T_crit * safety_factor
+                    
+                    if T_cond > T_max_safe:
+                        T_cond = T_max_safe - np.random.uniform(15, 25)
+                    if T_evap > T_max_safe * 0.65:
+                        T_evap = T_max_safe * 0.65 - np.random.uniform(10, 20)
+                        
+                    # Ensure minimum temperature lift is maintained
+                    if T_cond - T_evap < min_temp_lift:
+                        T_cond = T_evap + min_temp_lift + np.random.uniform(5, 10)
+            except:
+                pass  # Use envelope limits if fluid properties unavailable
         
         # Conservative mass flow rate
-        mass_flow = np.random.uniform(0.8, 1.2)  # kg/s (narrow range for stability)
+        mass_flow = np.random.uniform(0.9, 1.1)  # kg/s (very narrow range for stability)
         
-        # Realistic superheat and subcooling
-        superheat = np.random.uniform(5.0, 10.0)   # 5-10K superheat
-        subcool = np.random.uniform(3.0, 8.0)      # 3-8K subcooling
+        # Cycle-specific superheat and subcooling
+        if cycle_type == CycleType.CARNOT:
+            # Carnot cycles work best with minimal superheat/subcooling
+            superheat = np.random.uniform(3.0, 8.0)   # 3-8K superheat
+            subcool = np.random.uniform(2.0, 6.0)     # 2-6K subcooling
+        else:
+            # Other cycles can handle more superheat/subcooling
+            superheat = np.random.uniform(5.0, 12.0)  # 5-12K superheat
+            subcool = np.random.uniform(3.0, 10.0)    # 3-10K subcooling
         
-        # High-quality component efficiencies (realistic but not extreme)
-        eta_comp = np.random.uniform(0.82, 0.88)   # 82-88% compressor efficiency
-        eta_exp = np.random.uniform(0.78, 0.85)    # 78-85% expander efficiency
-        eta_mech = np.random.uniform(0.94, 0.97)   # 94-97% mechanical efficiency
-        eta_motor = np.random.uniform(0.91, 0.95)  # 91-95% motor efficiency
+        # High-quality component efficiencies (realistic ranges)
+        if cycle_type == CycleType.CARNOT:
+            # Carnot cycles need high efficiencies to be realistic
+            eta_comp = np.random.uniform(0.85, 0.90)   # 85-90% compressor efficiency
+            eta_exp = np.random.uniform(0.80, 0.88)    # 80-88% expander efficiency
+            eta_mech = np.random.uniform(0.95, 0.98)   # 95-98% mechanical efficiency
+            eta_motor = np.random.uniform(0.93, 0.96)  # 93-96% motor efficiency
+        else:
+            # Other cycles with more realistic efficiency ranges
+            eta_comp = np.random.uniform(0.82, 0.88)   # 82-88% compressor efficiency
+            eta_exp = np.random.uniform(0.78, 0.85)    # 78-85% expander efficiency
+            eta_mech = np.random.uniform(0.94, 0.97)   # 94-97% mechanical efficiency
+            eta_motor = np.random.uniform(0.91, 0.95)  # 91-95% motor efficiency
         
         # Conservative pressure drops
-        dp_evap = np.random.uniform(2000, 4000)    # 2-4 kPa
-        dp_cond = np.random.uniform(2000, 4000)    # 2-4 kPa
+        dp_evap = np.random.uniform(1500, 3500)    # 1.5-3.5 kPa
+        dp_cond = np.random.uniform(1500, 3500)    # 1.5-3.5 kPa
         
         # Realistic environmental conditions
-        T_ambient = np.random.uniform(283.15, 303.15)  # 10 to 30°C
-        humidity = np.random.uniform(0.40, 0.70)       # 40-70% RH
-        part_load = np.random.uniform(0.75, 1.0)       # 75-100% load (avoid very low loads)
+        T_ambient = np.random.uniform(285.15, 300.15)  # 12 to 27°C (narrower range)
+        humidity = np.random.uniform(0.45, 0.65)       # 45-65% RH
+        part_load = np.random.uniform(0.80, 1.0)       # 80-100% load (avoid low loads)
         
         return CycleParameters(
             T_evap=T_evap,
