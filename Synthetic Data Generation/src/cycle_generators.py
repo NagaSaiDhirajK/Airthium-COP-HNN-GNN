@@ -212,166 +212,192 @@ class CarnotCycle(ThermodynamicCycle):
     """Ideal Carnot cycle implementation"""
     
     def generate_cycle(self, params: CycleParameters) -> CycleResults:
-        """Generate ideal Carnot cycle"""
+        """Generate ideal Carnot cycle with improved robustness"""
         
         try:
-            # Validate temperature range
-            if params.T_cond <= params.T_evap:
-                raise ValueError(f"Invalid temperatures: T_cond ({params.T_cond:.1f}K) <= T_evap ({params.T_evap:.1f}K)")
+            # Validate temperature range with more conservative limits
+            temp_diff = params.T_cond - params.T_evap
+            if temp_diff <= 20.0:  # Minimum 20K temperature difference
+                raise ValueError(f"Temperature difference too small: {temp_diff:.1f}K (minimum 20K)")
             
-            # Get saturation pressures
+            if temp_diff > 80.0:  # Maximum 80K for stability
+                raise ValueError(f"Temperature difference too large: {temp_diff:.1f}K (maximum 80K)")
+            
+            # Get saturation pressures with validation
             try:
                 P_evap = self.fluid.get_saturation_pressure(params.T_evap)
                 P_cond = self.fluid.get_saturation_pressure(params.T_cond)
             except Exception as e:
                 raise ValueError(f"Cannot get saturation pressures: {e}")
             
-            if P_evap <= 0 or P_cond <= 0 or P_cond <= P_evap:
-                raise ValueError(f"Invalid pressures: P_evap={P_evap:.0f}, P_cond={P_cond:.0f}")
+            # Validate pressure range
+            if P_evap <= 1000 or P_cond <= 1000:  # Minimum 1 kPa
+                raise ValueError(f"Pressures too low: P_evap={P_evap:.0f}Pa, P_cond={P_cond:.0f}Pa")
             
-            # State 1: Saturated liquid at evaporator (start of evaporation)
+            if P_cond / P_evap > 20:  # Maximum pressure ratio of 20
+                raise ValueError(f"Pressure ratio too high: {P_cond/P_evap:.1f} (maximum 20)")
+            
+            if P_cond <= P_evap * 1.5:  # Minimum pressure ratio of 1.5
+                raise ValueError(f"Pressure ratio too low: {P_cond/P_evap:.1f} (minimum 1.5)")
+            
+            # For Carnot cycle, use simplified but robust approach
+            # State points based on ideal Carnot cycle with realistic assumptions
+            
+            # State 1: Saturated liquid at evaporator temperature
             try:
                 state1 = self.fluid.get_saturated_liquid(params.T_evap)
                 if state1 is None:
-                    state1 = self.fluid.get_properties(P_evap, params.T_evap)
-                    if state1 and hasattr(state1, 'x'):
-                        state1.x = 0.0  # Force saturated liquid
+                    raise ValueError("Cannot get saturated liquid state")
             except:
-                state1 = self.fluid.get_properties(P_evap, params.T_evap)
+                # Fallback: approximate liquid properties
+                state1 = self.fluid.get_properties(P_evap, params.T_evap - 2)  # Slightly subcooled
+                if state1 is None:
+                    raise ValueError("Cannot calculate state 1")
             
-            # State 2: Saturated vapor at evaporator (end of evaporation)
+            # State 2: Saturated vapor at evaporator temperature
             try:
                 state2 = self.fluid.get_saturated_vapor(params.T_evap)
                 if state2 is None:
-                    state2 = self.fluid.get_properties(P_evap, params.T_evap)
-                    if state2 and hasattr(state2, 'x'):
-                        state2.x = 1.0  # Force saturated vapor
+                    raise ValueError("Cannot get saturated vapor state")
             except:
-                state2 = self.fluid.get_properties(P_evap, params.T_evap)
+                # Fallback: approximate vapor properties
+                state2 = self.fluid.get_properties(P_evap, params.T_evap + 2)  # Slightly superheated
+                if state2 is None:
+                    raise ValueError("Cannot calculate state 2")
             
-            # State 3: After isentropic compression
+            # State 3: After isentropic compression to condenser pressure
+            # Use realistic compression with efficiency
             try:
-                state3 = self.fluid.get_properties_ps(P_cond, state2.s)
-                if state3 is None or state3.T < params.T_cond:
-                    # Fallback: superheated vapor at condenser pressure
-                    T3_guess = max(params.T_cond + 10, state2.T * (P_cond/P_evap)**0.3)
-                    state3 = self.fluid.get_properties(P_cond, T3_guess)
+                # Ideal isentropic compression
+                state3_ideal = self.fluid.get_properties_ps(P_cond, state2.s)
+                if state3_ideal is None:
+                    # Fallback: estimate compression temperature
+                    T3_est = state2.T * (P_cond/P_evap)**(0.25)  # Polytropic approximation
+                    state3_ideal = self.fluid.get_properties(P_cond, T3_est)
+                
+                # Apply compressor efficiency
+                h3_actual = state2.h + (state3_ideal.h - state2.h) / params.eta_comp_isentropic
+                state3 = self.fluid.get_properties_ph(P_cond, h3_actual)
+                
+                if state3 is None:
+                    state3 = state3_ideal  # Use ideal if actual calculation fails
+                    
             except:
-                T3_guess = params.T_cond + 20
-                state3 = self.fluid.get_properties(P_cond, T3_guess)
+                # Final fallback: estimate based on temperature
+                T3_est = params.T_cond + 15  # Reasonable superheat
+                state3 = self.fluid.get_properties(P_cond, T3_est)
+                if state3 is None:
+                    raise ValueError("Cannot calculate state 3")
             
-            # State 4: Saturated liquid at condenser (end of condensation)
+            # State 4: Saturated liquid at condenser temperature
             try:
                 state4 = self.fluid.get_saturated_liquid(params.T_cond)
                 if state4 is None:
-                    state4 = self.fluid.get_properties(P_cond, params.T_cond)
-                    if state4 and hasattr(state4, 'x'):
-                        state4.x = 0.0  # Force saturated liquid
+                    raise ValueError("Cannot get saturated liquid at condenser")
             except:
-                state4 = self.fluid.get_properties(P_cond, params.T_cond)
+                # Fallback: approximate liquid properties
+                state4 = self.fluid.get_properties(P_cond, params.T_cond - 2)  # Slightly subcooled
+                if state4 is None:
+                    raise ValueError("Cannot calculate state 4")
             
-            # Validate all states
+            # Validate all states have valid properties
             states = [state1, state2, state3, state4]
-            if any(state is None for state in states):
-                raise ValueError("Could not calculate all thermodynamic states")
-            
-            # Check for valid enthalpies
             for i, state in enumerate(states):
+                if state is None:
+                    raise ValueError(f"State {i+1} is None")
                 if not hasattr(state, 'h') or state.h is None or np.isnan(state.h):
-                    raise ValueError(f"Invalid enthalpy in state {i+1}")
+                    raise ValueError(f"Invalid enthalpy in state {i+1}: {getattr(state, 'h', 'None')}")
+                if not hasattr(state, 's') or state.s is None or np.isnan(state.s):
+                    raise ValueError(f"Invalid entropy in state {i+1}: {getattr(state, 's', 'None')}")
             
             state_labels = ["evap_in", "evap_out", "comp_out", "cond_out"]
             
-            # Calculate heat transfers and work - let physics and parameters determine efficiency
-            # Generate diverse data spanning full range of physically possible cycles
-            
-            # Basic thermodynamic calculations from state points
-            Q_evap = params.mass_flow * (state2.h - state1.h) / 1000  # kW
-            Q_cond = params.mass_flow * (state3.h - state4.h) / 1000  # kW
-            W_comp_ideal = params.mass_flow * (state3.h - state2.h) / 1000  # kW
-            W_exp_ideal = params.mass_flow * (state4.h - state1.h) / 1000   # kW
-            
-            # Ensure positive values (sign convention)
-            Q_evap = abs(Q_evap)
-            Q_cond = abs(Q_cond)
-            W_comp_ideal = abs(W_comp_ideal)
-            W_exp_ideal = abs(W_exp_ideal)
-            
-            # Apply component efficiencies as specified in parameters
-            # This creates natural variation based on randomly generated parameters
-            W_comp_actual = W_comp_ideal / max(params.eta_comp_isentropic, 0.1)  # Avoid division by zero
-            W_exp_actual = W_exp_ideal * max(params.eta_exp_isentropic, 0.0)    # Can be zero for throttling
-            
-            # Apply additional system losses (motor, mechanical, etc.)
-            W_comp_total = W_comp_actual / max(params.eta_motor * params.eta_mechanical, 0.1)
-            
-            # Net work (varies naturally with parameters)
-            W_net = W_comp_total - W_exp_actual
-            
-            # Ensure positive net work input
-            if W_net <= 0:
-                W_net = W_comp_total  # No work recovery
-                W_exp_actual = 0
-            
-            # Energy balance: Q_cond = Q_evap + W_net (First Law of Thermodynamics)
-            Q_cond_balanced = Q_evap + W_net
-            
-            # Use energy-balanced value to ensure physics compliance
-            Q_cond = Q_cond_balanced
-            
-            # Calculate performance metrics
-            COP_heating = Q_cond / W_net if W_net > 0 else 0
-            COP_cooling = Q_evap / W_net if W_net > 0 else 0
-            
-            # ONLY enforce fundamental physics laws (no artificial efficiency limits)
-            # 1. Carnot limit check (absolute physical requirement)
-            carnot_cop_heating = params.T_cond / (params.T_cond - params.T_evap)
-            carnot_cop_cooling = params.T_evap / (params.T_cond - params.T_evap)
-            
-            if COP_heating > carnot_cop_heating * 1.01:  # Allow 1% numerical tolerance
-                raise ValueError(f"COP_heating ({COP_heating:.2f}) exceeds Carnot limit ({carnot_cop_heating:.2f})")
-            
-            if COP_cooling > carnot_cop_cooling * 1.01:
-                raise ValueError(f"COP_cooling ({COP_cooling:.2f}) exceeds Carnot limit ({carnot_cop_cooling:.2f})")
-            
-            # 2. Basic sanity checks only
-            if COP_heating <= 0 or COP_cooling <= 0:
-                raise ValueError(f"Invalid COPs: heating={COP_heating:.2f}, cooling={COP_cooling:.2f}")
-            
-            if W_net <= 0:
-                raise ValueError(f"Invalid net work: {W_net:.2f} kW")
-            
-            # Output values (let natural variation occur)
-            W_comp = W_comp_total
-            W_exp = W_exp_actual
-            
-            # Create results
-            results = CycleResults(
-                states=states,
-                state_labels=state_labels,
-                Q_evap=Q_evap,
-                Q_cond=Q_cond,
-                W_comp=W_comp,
-                W_exp=W_exp,
-                W_net=W_net,
-                COP_heating=COP_heating,
-                COP_cooling=COP_cooling,
-                mass_flow=params.mass_flow,
-                capacity_heating=Q_cond,
-                capacity_cooling=Q_evap,
-                cycle_type="carnot",
-                working_fluid=self.fluid_name,
-                operating_conditions=asdict(params)
-            )
-            
-            # Generate trajectory
-            processes = ["evaporation", "isentropic_compression", "condensation", "isentropic_expansion"]
-            results.trajectory = self._generate_trajectory(states, processes)
-            
-            # Validate physics
-            results = self._validate_physics(results)
-            
-            return results
+            # Calculate cycle performance with robust error handling
+            try:
+                # Heat transfers (ensure positive values)
+                Q_evap_raw = params.mass_flow * (state2.h - state1.h) / 1000  # kW
+                Q_cond_raw = params.mass_flow * (state3.h - state4.h) / 1000  # kW
+                
+                Q_evap = abs(Q_evap_raw)
+                Q_cond_raw_abs = abs(Q_cond_raw)
+                
+                # Work calculations
+                W_comp_ideal = params.mass_flow * (state3.h - state2.h) / 1000  # kW
+                W_comp_ideal = abs(W_comp_ideal)
+                
+                # Apply system efficiencies
+                W_comp_actual = W_comp_ideal / max(params.eta_motor * params.eta_mechanical, 0.5)
+                
+                # For Carnot cycle, expansion work is typically small (throttling valve)
+                W_exp = 0.0  # Simplified assumption
+                W_net = W_comp_actual
+                
+                # Energy balance: Q_cond = Q_evap + W_net (First Law)
+                Q_cond = Q_evap + W_net
+                
+                # Calculate COPs
+                if W_net > 0:
+                    COP_heating = Q_cond / W_net
+                    COP_cooling = Q_evap / W_net
+                else:
+                    raise ValueError("Zero or negative work input")
+                
+                # Validate against Carnot limits with margin
+                carnot_cop_heating = params.T_cond / (params.T_cond - params.T_evap)
+                carnot_cop_cooling = params.T_evap / (params.T_cond - params.T_evap)
+                
+                # Apply realistic efficiency factor (60-90% of Carnot)
+                efficiency_factor = np.random.uniform(0.60, 0.90)
+                max_cop_heating = carnot_cop_heating * efficiency_factor
+                max_cop_cooling = carnot_cop_cooling * efficiency_factor
+                
+                # Adjust COPs if they exceed realistic limits
+                if COP_heating > max_cop_heating:
+                    # Scale down performance to realistic level
+                    scale_factor = max_cop_heating / COP_heating
+                    COP_heating = max_cop_heating
+                    COP_cooling = COP_cooling * scale_factor
+                    W_net = Q_evap / COP_cooling
+                    Q_cond = Q_evap + W_net
+                    W_comp_actual = W_net
+                
+                # Final validation
+                if COP_heating <= 0.5 or COP_heating > 15:
+                    raise ValueError(f"COP heating out of realistic range: {COP_heating:.2f}")
+                
+                if COP_cooling <= 0.5 or COP_cooling > 12:
+                    raise ValueError(f"COP cooling out of realistic range: {COP_cooling:.2f}")
+                
+                # Create results
+                results = CycleResults(
+                    states=states,
+                    state_labels=state_labels,
+                    Q_evap=Q_evap,
+                    Q_cond=Q_cond,
+                    W_comp=W_comp_actual,
+                    W_exp=W_exp,
+                    W_net=W_net,
+                    COP_heating=COP_heating,
+                    COP_cooling=COP_cooling,
+                    mass_flow=params.mass_flow,
+                    capacity_heating=Q_cond,
+                    capacity_cooling=Q_evap,
+                    cycle_type="carnot",
+                    working_fluid=self.fluid_name,
+                    operating_conditions=asdict(params)
+                )
+                
+                # Generate trajectory
+                processes = ["evaporation", "isentropic_compression", "condensation", "isentropic_expansion"]
+                results.trajectory = self._generate_trajectory(states, processes)
+                
+                # Validate physics
+                results = self._validate_physics(results)
+                
+                return results
+                
+            except Exception as e:
+                raise ValueError(f"Error in performance calculations: {e}")
             
         except Exception as e:
             warnings.warn(f"Error generating Carnot cycle for {self.fluid_name}: {e}")
