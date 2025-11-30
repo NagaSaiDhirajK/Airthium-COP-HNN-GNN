@@ -1,0 +1,399 @@
+{
+  "validation_timestamp": "2025-11-30T03:25:41.006594",
+  "models_tested": 17,
+  "total_test_cycles": 85,
+  "model_results": {
+    "hamiltonian": {
+      "model_score": 0.22644226827625794,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.2746226269453312,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.4693981079893998,
+        "cop_heating": 0.5505530589966725,
+        "cop_cooling": 0.41166058880888584
+      },
+      "physics_compliance": {
+        "energy_conservation": false,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {
+          "avg_energy_error": 0.003494906256273978
+        }
+      }
+    },
+    "temporal": {
+      "model_score": 0.20665377397746598,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.015873015873015876,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.2210055780420047,
+        "condenser_temp_out": 0.09932313693010923,
+        "suction_pressure": 0.38158225924520334,
+        "discharge_pressure": 0.504485885492117,
+        "compressor_power": 0.10000000000000002,
+        "cop_heating": 0.22187455329532818,
+        "cop_cooling": 0.21573953691941541
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {
+          "avg_time_series_length": 601.0
+        }
+      }
+    },
+    "component_interactions": {
+      "model_score": 0.13771832876534962,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.015873015873015876,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.3691121928866761,
+        "discharge_pressure": 0.22915372696242142,
+        "compressor_power": 0.3200628605188021,
+        "cop_heating": 0.15764411502818323,
+        "cop_cooling": 0.015873015873015876
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {
+          "avg_stability_margin": 0.9981307078635508
+        }
+      }
+    },
+    "sensor_noise": {
+      "model_score": 0.18034712240524464,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.10000000000000002,
+        "suction_pressure": 0.6514187558126812,
+        "discharge_pressure": 0.08309980057223465,
+        "compressor_power": 0.16555261904568722,
+        "cop_heating": 0.12434843233525558,
+        "cop_cooling": 0.2828314780083275
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "compressor_wear": {
+      "model_score": 0.17011307547979765,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.015873015873015876,
+        "evaporator_temp_out": 0.015873015873015876,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.5953729096955224,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.15522604123013437,
+        "cop_heating": 0.21852031657514612,
+        "cop_cooling": 0.3984063483253126
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "fault_injection": {
+      "model_score": 0.12756326819792835,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.015873015873015876,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.3106638554415299,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.10000000000000002,
+        "cop_heating": 0.2289465479831787,
+        "cop_cooling": 0.26083996273759896
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "control_system": {
+      "model_score": 0.18428088473629725,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.015873015873015876,
+        "evaporator_temp_out": 0.015873015873015876,
+        "condenser_temp_in": 0.10000000000000002,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.5482302756415167,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.3444081510795783,
+        "cop_heating": 0.1979784160612071,
+        "cop_cooling": 0.3202920722253257
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "startup_shutdown": {
+      "model_score": 0.2100120550423742,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.015873015873015876,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.10000000000000002,
+        "suction_pressure": 0.45026427802676566,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.3496464917378463,
+        "cop_heating": 0.5761882890955475,
+        "cop_cooling": 0.18226340477517658
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "defrost_cycle": {
+      "model_score": 0.1302724010271857,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.015873015873015876,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.5296834160891696,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.10000000000000002,
+        "cop_heating": 0.1566092435246917,
+        "cop_cooling": 0.13853990201176225
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "part_load_cycling": {
+      "model_score": 0.26663105835265305,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.2924994668765875,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.25642313220163454,
+        "discharge_pressure": 0.17318501668805164,
+        "compressor_power": 0.5424146021075884,
+        "cop_heating": 0.7232183389087077,
+        "cop_cooling": 0.19606595251829162
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "cycle_generator": {
+      "model_score": 0.2625807304207857,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.20488264519213015,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.179626064565892,
+        "suction_pressure": 0.3237814775184151,
+        "discharge_pressure": 0.3246541220417845,
+        "compressor_power": 0.17966026345004674,
+        "cop_heating": 0.2905970749446906,
+        "cop_cooling": 0.7441519102010968
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "improved_cycle_generator": {
+      "model_score": 0.1829899863618359,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.2823635937164236,
+        "suction_pressure": 0.3507975584845819,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.11975400671725579,
+        "cop_heating": 0.3075000726117185,
+        "cop_cooling": 0.2706216298535274
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "ambient_conditions": {
+      "model_score": 0.1754922919428423,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.5460929517135843,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.10000000000000002,
+        "cop_heating": 0.24158027776874058,
+        "cop_cooling": 0.360011366257224
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "seasonal_performance": {
+      "model_score": 0.11104585053614416,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.015873015873015876,
+        "evaporator_temp_out": 0.015873015873015876,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.16642741119858054,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.11700327676783219,
+        "cop_heating": 0.3682793843641065,
+        "cop_cooling": 0.18421051900271468
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "indoor_performance": {
+      "model_score": 0.14811952682546964,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.015873015873015876,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.1435107534563135,
+        "suction_pressure": 0.4358075460662029,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.10000000000000002,
+        "cop_heating": 0.3220114101606784,
+        "cop_cooling": 0.10000000000000002
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "refrigerant_charge": {
+      "model_score": 0.1395172305417713,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.015873015873015876,
+        "suction_pressure": 0.4021536653475542,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.14390736447479416,
+        "cop_heating": 0.24094013689621102,
+        "cop_cooling": 0.13690787641135044
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    },
+    "molecular_refrigerant": {
+      "model_score": 0.24970291339148729,
+      "model_status": "FAIL",
+      "cycles_generated": 5,
+      "validation_details": {
+        "evaporator_temp_in": 0.10000000000000002,
+        "evaporator_temp_out": 0.10000000000000002,
+        "condenser_temp_in": 0.015873015873015876,
+        "condenser_temp_out": 0.22948147977313327,
+        "suction_pressure": 0.6262107408154581,
+        "discharge_pressure": 0.10000000000000002,
+        "compressor_power": 0.10000000000000002,
+        "cop_heating": 0.2999551946632513,
+        "cop_cooling": 0.6758057893985272
+      },
+      "physics_compliance": {
+        "energy_conservation": true,
+        "mass_conservation": true,
+        "thermodynamic_consistency": true,
+        "model_specific_checks": {}
+      }
+    }
+  },
+  "overall_summary": {
+    "overall_score": 0.18291075095769946,
+    "models_tested": 17,
+    "models_passed": 0,
+    "models_warning": 0,
+    "models_failed": 17,
+    "status_breakdown": {
+      "FAIL": 17
+    },
+    "best_performing_model": "part_load_cycling",
+    "worst_performing_model": "seasonal_performance"
+  }
+}
