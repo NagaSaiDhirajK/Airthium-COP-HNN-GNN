@@ -1,0 +1,2913 @@
+{
+  "interaction_scenarios": [
+    {
+      "scenario_id": 0,
+      "component_states": {
+        "compressor": {
+          "temperature_K": 351.0116186228095,
+          "pressure_Pa": 536467.5252801583,
+          "mass_flow_rate_kg_per_s": 0.18801688645036094
+        },
+        "evaporator": {
+          "temperature_K": 371.51244458894206,
+          "pressure_Pa": 1001739.8875897949,
+          "mass_flow_rate_kg_per_s": 0.10046414481105094
+        },
+        "condenser": {
+          "temperature_K": 345.2751905750956,
+          "pressure_Pa": 178037.8603918117,
+          "mass_flow_rate_kg_per_s": 0.4789839147393116
+        },
+        "expansion_valve": {
+          "temperature_K": 300.5847710317694,
+          "pressure_Pa": 843707.0828401837,
+          "mass_flow_rate_kg_per_s": 0.01670543750143514
+        },
+        "refrigerant_lines": {
+          "temperature_K": 285.142075140471,
+          "pressure_Pa": 722145.9826594738,
+          "mass_flow_rate_kg_per_s": 0.20804981071104883
+        },
+        "fan": {
+          "temperature_K": 353.5046837583342,
+          "pressure_Pa": 506194.96721238585,
+          "mass_flow_rate_kg_per_s": 0.47994739634044
+        }
+      },
+      "nodes": [
+        {
+          "node_id": "test_system_001_000_compressor",
+          "component_type": "compressor",
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 15000.0,
+          "thermal_resistance_K_per_W": 0.02,
+          "surface_area_m2": 2.5,
+          "temperature_K": 351.0116186228095,
+          "pressure_Pa": 536467.5252801583,
+          "mass_flow_rate_kg_per_s": 0.18801688645036094,
+          "convection_coefficient_W_per_m2_K": 25.0,
+          "radiation_coefficient_W_per_m2_K": 5.0,
+          "conduction_coefficient_W_per_m_K": 50.0
+        },
+        {
+          "node_id": "test_system_001_000_evaporator",
+          "component_type": "evaporator",
+          "position": [
+            2.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 8000.0,
+          "thermal_resistance_K_per_W": 0.001,
+          "surface_area_m2": 15.0,
+          "temperature_K": 371.51244458894206,
+          "pressure_Pa": 1001739.8875897949,
+          "mass_flow_rate_kg_per_s": 0.10046414481105094,
+          "convection_coefficient_W_per_m2_K": 150.0,
+          "radiation_coefficient_W_per_m2_K": 8.0,
+          "conduction_coefficient_W_per_m_K": 200.0
+        },
+        {
+          "node_id": "test_system_001_000_condenser",
+          "component_type": "condenser",
+          "position": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 12000.0,
+          "thermal_resistance_K_per_W": 0.0015,
+          "surface_area_m2": 18.0,
+          "temperature_K": 345.2751905750956,
+          "pressure_Pa": 178037.8603918117,
+          "mass_flow_rate_kg_per_s": 0.4789839147393116,
+          "convection_coefficient_W_per_m2_K": 120.0,
+          "radiation_coefficient_W_per_m2_K": 10.0,
+          "conduction_coefficient_W_per_m_K": 180.0
+        },
+        {
+          "node_id": "test_system_001_000_expansion_valve",
+          "component_type": "expansion_valve",
+          "position": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 500.0,
+          "thermal_resistance_K_per_W": 0.1,
+          "surface_area_m2": 0.1,
+          "temperature_K": 300.5847710317694,
+          "pressure_Pa": 843707.0828401837,
+          "mass_flow_rate_kg_per_s": 0.01670543750143514,
+          "convection_coefficient_W_per_m2_K": 20.0,
+          "radiation_coefficient_W_per_m2_K": 3.0,
+          "conduction_coefficient_W_per_m_K": 15.0
+        },
+        {
+          "node_id": "test_system_001_000_refrigerant_lines",
+          "component_type": "refrigerant_lines",
+          "position": [
+            8.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 2000.0,
+          "thermal_resistance_K_per_W": 0.05,
+          "surface_area_m2": 5.0,
+          "temperature_K": 285.142075140471,
+          "pressure_Pa": 722145.9826594738,
+          "mass_flow_rate_kg_per_s": 0.20804981071104883,
+          "convection_coefficient_W_per_m2_K": 30.0,
+          "radiation_coefficient_W_per_m2_K": 4.0,
+          "conduction_coefficient_W_per_m_K": 400.0
+        },
+        {
+          "node_id": "test_system_001_000_fan",
+          "component_type": "fan",
+          "position": [
+            10.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 3000.0,
+          "thermal_resistance_K_per_W": 0.03,
+          "surface_area_m2": 1.0,
+          "temperature_K": 353.5046837583342,
+          "pressure_Pa": 506194.96721238585,
+          "mass_flow_rate_kg_per_s": 0.47994739634044,
+          "convection_coefficient_W_per_m2_K": 40.0,
+          "radiation_coefficient_W_per_m2_K": 6.0,
+          "conduction_coefficient_W_per_m_K": 25.0
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "test_system_001_000_thermal_0",
+          "source_node": "test_system_001_000_compressor",
+          "target_node": "test_system_001_000_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 4.838709677419355,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_1",
+          "source_node": "test_system_001_000_compressor",
+          "target_node": "test_system_001_000_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.8,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_2",
+          "source_node": "test_system_001_000_compressor",
+          "target_node": "test_system_001_000_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 7.936507936507937,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.25,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_3",
+          "source_node": "test_system_001_000_compressor",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.5,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_4",
+          "source_node": "test_system_001_000_compressor",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_5",
+          "source_node": "test_system_001_000_evaporator",
+          "target_node": "test_system_001_000_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 4.838709677419355,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_6",
+          "source_node": "test_system_001_000_evaporator",
+          "target_node": "test_system_001_000_compressor",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.8,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_7",
+          "source_node": "test_system_001_000_evaporator",
+          "target_node": "test_system_001_000_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.7027027027027026,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.3,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_8",
+          "source_node": "test_system_001_000_evaporator",
+          "target_node": "test_system_001_000_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.85,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_9",
+          "source_node": "test_system_001_000_evaporator",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 6.557377049180328,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.4,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_10",
+          "source_node": "test_system_001_000_evaporator",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_11",
+          "source_node": "test_system_001_000_evaporator",
+          "target_node": "test_system_001_000_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 14.634146341463413,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.6,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_12",
+          "source_node": "test_system_001_000_condenser",
+          "target_node": "test_system_001_000_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 7.936507936507937,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.25,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_13",
+          "source_node": "test_system_001_000_condenser",
+          "target_node": "test_system_001_000_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.7937219730941703,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_14",
+          "source_node": "test_system_001_000_condenser",
+          "target_node": "test_system_001_000_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.75,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_15",
+          "source_node": "test_system_001_000_condenser",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 5.691056910569104,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.35,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_16",
+          "source_node": "test_system_001_000_condenser",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_17",
+          "source_node": "test_system_001_000_condenser",
+          "target_node": "test_system_001_000_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 16.86746987951807,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.7,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_18",
+          "source_node": "test_system_001_000_expansion_valve",
+          "target_node": "test_system_001_000_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.7027027027027026,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.3,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_19",
+          "source_node": "test_system_001_000_expansion_valve",
+          "target_node": "test_system_001_000_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 200.0,
+          "coupling_strength": 0.85,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_20",
+          "source_node": "test_system_001_000_expansion_valve",
+          "target_node": "test_system_001_000_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.7937219730941703,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_21",
+          "source_node": "test_system_001_000_expansion_valve",
+          "target_node": "test_system_001_000_condenser",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.75,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_22",
+          "source_node": "test_system_001_000_expansion_valve",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 3.1249999999999996,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.5,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_23",
+          "source_node": "test_system_001_000_expansion_valve",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_24",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.5,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_25",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_compressor",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_26",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 6.557377049180328,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.4,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_27",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_28",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 5.691056910569104,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.35,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_29",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_condenser",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_30",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 3.1249999999999996,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.5,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_mass_31",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_32",
+          "source_node": "test_system_001_000_refrigerant_lines",
+          "target_node": "test_system_001_000_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.6666666666666665,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_33",
+          "source_node": "test_system_001_000_fan",
+          "target_node": "test_system_001_000_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 14.634146341463413,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.6,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_34",
+          "source_node": "test_system_001_000_fan",
+          "target_node": "test_system_001_000_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 16.86746987951807,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.7,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_000_thermal_35",
+          "source_node": "test_system_001_000_fan",
+          "target_node": "test_system_001_000_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.6666666666666665,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        }
+      ],
+      "interaction_matrix": {
+        "matrix_id": "test_system_001_000_interaction_matrix",
+        "component_list": [
+          "test_system_001_000_compressor",
+          "test_system_001_000_evaporator",
+          "test_system_001_000_condenser",
+          "test_system_001_000_expansion_valve",
+          "test_system_001_000_refrigerant_lines",
+          "test_system_001_000_fan"
+        ],
+        "thermal_interaction_matrix": [
+          [
+            750000.0,
+            4.838709677419355,
+            7.936507936507937,
+            0.0,
+            2.5,
+            0.0
+          ],
+          [
+            4.838709677419355,
+            8000000.0,
+            0.0,
+            2.7027027027027026,
+            6.557377049180328,
+            14.634146341463413
+          ],
+          [
+            7.936507936507937,
+            0.0,
+            8000000.0,
+            1.7937219730941703,
+            5.691056910569104,
+            16.86746987951807
+          ],
+          [
+            0.0,
+            2.7027027027027026,
+            1.7937219730941703,
+            5000.0,
+            3.1249999999999996,
+            0.0
+          ],
+          [
+            2.5,
+            6.557377049180328,
+            5.691056910569104,
+            3.1249999999999996,
+            40000.0,
+            1.6666666666666665
+          ],
+          [
+            0.0,
+            14.634146341463413,
+            16.86746987951807,
+            0.0,
+            1.6666666666666665,
+            100000.0
+          ]
+        ],
+        "mass_interaction_matrix": [
+          [
+            1.0,
+            0.001,
+            0.0,
+            0.0,
+            0.001,
+            0.0
+          ],
+          [
+            0.001,
+            1.0,
+            0.0,
+            0.0005,
+            0.001,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0005,
+            0.001,
+            0.0
+          ],
+          [
+            0.0,
+            0.005,
+            0.0005,
+            1.0,
+            0.0005,
+            0.0
+          ],
+          [
+            0.001,
+            0.001,
+            0.001,
+            0.0005,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "control_interaction_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "connectivity_matrix": [
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "adjacency_matrix": [
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "eigenvalues": [
+          "(749999.9999968854+0j)",
+          "(40000.0002144483+0j)",
+          "(4999.999719666693+0j)",
+          "(99999.99998317222+0j)",
+          "(8000000.000085218+0j)",
+          "(8000000.000000607+0j)"
+        ],
+        "stability_margin": 0.9981307078635508,
+        "coupling_strength": 201133.01248116992
+      },
+      "network_properties": {
+        "network_density": 0.7333333333333333,
+        "avg_in_degree_centrality": 0.7333333333333334,
+        "avg_out_degree_centrality": 0.7333333333333334,
+        "avg_betweenness_centrality": 0.06666666666666667,
+        "clustering_coefficient": 0.6,
+        "average_path_length": 1.2666666666666666,
+        "thermal_matrix_condition": 1600.0000897236969,
+        "mass_matrix_condition": 1.0065671760649681,
+        "stability_margin": 0.9981307078635508,
+        "coupling_strength": 201133.01248116992,
+        "eigenvalue_spread": 7995000.000365552
+      },
+      "heat_sources": {
+        "compressor": 1825.3205066092296,
+        "evaporator": -2235.3543924569753,
+        "condenser": -4345.65187851724
+      },
+      "heat_transfer_simulation": [
+        {
+          "time_s": 0.0,
+          "compressor_temperature_K": 353.37031723803494,
+          "evaporator_temperature_K": 376.08650932028667,
+          "condenser_temperature_K": 348.0105278709584,
+          "expansion_valve_temperature_K": 325.72961472168043,
+          "refrigerant_lines_temperature_K": 302.1599723053811,
+          "fan_temperature_K": 373.0645556764338
+        },
+        {
+          "time_s": 5.0,
+          "compressor_temperature_K": 355.75781130004367,
+          "evaporator_temperature_K": 380.9588283588417,
+          "condenser_temperature_K": 350.95028102540783,
+          "expansion_valve_temperature_K": 351.57895541522595,
+          "refrigerant_lines_temperature_K": 319.58445696256996,
+          "fan_temperature_K": 392.86015911794294
+        },
+        {
+          "time_s": 10.0,
+          "compressor_temperature_K": 358.1754614697761,
+          "evaporator_temperature_K": 386.13450123929755,
+          "condenser_temperature_K": 354.09769266920375,
+          "expansion_valve_temperature_K": 378.15722655093475,
+          "refrigerant_lines_temperature_K": 337.42999295168033,
+          "fan_temperature_K": 412.90564461841274
+        },
+        {
+          "time_s": 15.0,
+          "compressor_temperature_K": 360.62465726480775,
+          "evaporator_temperature_K": 391.6188615876265,
+          "condenser_temperature_K": 357.4561619433797,
+          "expansion_valve_temperature_K": 405.48950955136394,
+          "refrigerant_lines_temperature_K": 355.71143219721444,
+          "fan_temperature_K": 433.2154184279376
+        },
+        {
+          "time_s": 20.0,
+          "compressor_temperature_K": 363.10681817439314,
+          "evaporator_temperature_K": 397.4174822330751,
+          "condenser_temperature_K": 361.0292477953796,
+          "expansion_valve_temperature_K": 433.6015550849069,
+          "refrigerant_lines_temperature_K": 374.44402708107543,
+          "fan_temperature_K": 453.80415369856195
+        },
+        {
+          "time_s": 25.0,
+          "compressor_temperature_K": 365.6233948017194,
+          "evaporator_temperature_K": 403.53618050940116,
+          "condenser_temperature_K": 364.82067240533155,
+          "expansion_valve_temperature_K": 462.5198049115198,
+          "refrigerant_lines_temperature_K": 393.6434431654814,
+          "fan_temperature_K": 474.68680192345465
+        },
+        {
+          "time_s": 30.0,
+          "compressor_temperature_K": 368.1758700344718,
+          "evaporator_temperature_K": 409.98102375846884,
+          "condenser_temperature_K": 368.8343247404714,
+          "expansion_valve_temperature_K": 492.2714143307735,
+          "refrigerant_lines_temperature_K": 413.325772277037,
+          "fan_temperature_K": 495.87860463704004
+        },
+        {
+          "time_s": 35.0,
+          "compressor_temperature_K": 370.76576024449656,
+          "evaporator_temperature_K": 416.7583350308367,
+          "condenser_temperature_K": 373.074264244273,
+          "expansion_valve_temperature_K": 522.8842752513006,
+          "refrigerant_lines_temperature_K": 433.50754596302227,
+          "fan_temperature_K": 517.395105385585
+        },
+        {
+          "time_s": 40.0,
+          "compressor_temperature_K": 373.39461651766317,
+          "evaporator_temperature_K": 423.87469899645237,
+          "condenser_temperature_K": 377.54472466306635,
+          "expansion_valve_temperature_K": 554.3870399009711,
+          "refrigerant_lines_temperature_K": 454.2057493312278,
+          "fan_temperature_K": 539.2521619779774
+        },
+        {
+          "time_s": 45.0,
+          "compressor_temperature_K": 376.06402591488006,
+          "evaporator_temperature_K": 431.3369680669436,
+          "condenser_temperature_K": 382.25011801391867,
+          "expansion_valve_temperature_K": 586.809145197961,
+          "refrigerant_lines_temperature_K": 475.4378352851135,
+          "fan_temperature_K": 561.465959026643
+        },
+        {
+          "time_s": 50.0,
+          "compressor_temperature_K": 378.7756127654957,
+          "evaporator_temperature_K": 439.1522687363604,
+          "condenser_temperature_K": 387.1950386955669,
+          "expansion_valve_temperature_K": 620.180837803315,
+          "refrigerant_lines_temperature_K": 497.22173916627594,
+          "fan_temperature_K": 584.0530207889063
+        },
+        {
+          "time_s": 55.0,
+          "compressor_temperature_K": 381.5310399937401,
+          "evaporator_temperature_K": 447.3280081457326,
+          "condenser_temperature_K": 392.3842677475669,
+          "expansion_valve_temperature_K": 654.5331998761925,
+          "refrigerant_lines_temperature_K": 519.5758938167238,
+          "fan_temperature_K": 607.0302243192031
+        }
+      ]
+    },
+    {
+      "scenario_id": 1,
+      "component_states": {
+        "compressor": {
+          "temperature_K": 326.271926410836,
+          "pressure_Pa": 1106534.680760726,
+          "mass_flow_rate_kg_per_s": 0.29910919075397957
+        },
+        "evaporator": {
+          "temperature_K": 307.9997920393151,
+          "pressure_Pa": 128881.26378728452,
+          "mass_flow_rate_kg_per_s": 0.11119243298646751
+        },
+        "condenser": {
+          "temperature_K": 303.17659632178004,
+          "pressure_Pa": 1432951.3444873611,
+          "mass_flow_rate_kg_per_s": 0.4507301762684447
+        },
+        "expansion_valve": {
+          "temperature_K": 283.9123971852127,
+          "pressure_Pa": 1102366.8380008684,
+          "mass_flow_rate_kg_per_s": 0.3847097253848792
+        },
+        "refrigerant_lines": {
+          "temperature_K": 303.6602390639313,
+          "pressure_Pa": 1409046.7963087168,
+          "mass_flow_rate_kg_per_s": 0.14218147955607635
+        },
+        "fan": {
+          "temperature_K": 363.4435196647475,
+          "pressure_Pa": 210393.59416411727,
+          "mass_flow_rate_kg_per_s": 0.16634675836759608
+        }
+      },
+      "nodes": [
+        {
+          "node_id": "test_system_001_001_compressor",
+          "component_type": "compressor",
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 15000.0,
+          "thermal_resistance_K_per_W": 0.02,
+          "surface_area_m2": 2.5,
+          "temperature_K": 326.271926410836,
+          "pressure_Pa": 1106534.680760726,
+          "mass_flow_rate_kg_per_s": 0.29910919075397957,
+          "convection_coefficient_W_per_m2_K": 25.0,
+          "radiation_coefficient_W_per_m2_K": 5.0,
+          "conduction_coefficient_W_per_m_K": 50.0
+        },
+        {
+          "node_id": "test_system_001_001_evaporator",
+          "component_type": "evaporator",
+          "position": [
+            2.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 8000.0,
+          "thermal_resistance_K_per_W": 0.001,
+          "surface_area_m2": 15.0,
+          "temperature_K": 307.9997920393151,
+          "pressure_Pa": 128881.26378728452,
+          "mass_flow_rate_kg_per_s": 0.11119243298646751,
+          "convection_coefficient_W_per_m2_K": 150.0,
+          "radiation_coefficient_W_per_m2_K": 8.0,
+          "conduction_coefficient_W_per_m_K": 200.0
+        },
+        {
+          "node_id": "test_system_001_001_condenser",
+          "component_type": "condenser",
+          "position": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 12000.0,
+          "thermal_resistance_K_per_W": 0.0015,
+          "surface_area_m2": 18.0,
+          "temperature_K": 303.17659632178004,
+          "pressure_Pa": 1432951.3444873611,
+          "mass_flow_rate_kg_per_s": 0.4507301762684447,
+          "convection_coefficient_W_per_m2_K": 120.0,
+          "radiation_coefficient_W_per_m2_K": 10.0,
+          "conduction_coefficient_W_per_m_K": 180.0
+        },
+        {
+          "node_id": "test_system_001_001_expansion_valve",
+          "component_type": "expansion_valve",
+          "position": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 500.0,
+          "thermal_resistance_K_per_W": 0.1,
+          "surface_area_m2": 0.1,
+          "temperature_K": 283.9123971852127,
+          "pressure_Pa": 1102366.8380008684,
+          "mass_flow_rate_kg_per_s": 0.3847097253848792,
+          "convection_coefficient_W_per_m2_K": 20.0,
+          "radiation_coefficient_W_per_m2_K": 3.0,
+          "conduction_coefficient_W_per_m_K": 15.0
+        },
+        {
+          "node_id": "test_system_001_001_refrigerant_lines",
+          "component_type": "refrigerant_lines",
+          "position": [
+            8.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 2000.0,
+          "thermal_resistance_K_per_W": 0.05,
+          "surface_area_m2": 5.0,
+          "temperature_K": 303.6602390639313,
+          "pressure_Pa": 1409046.7963087168,
+          "mass_flow_rate_kg_per_s": 0.14218147955607635,
+          "convection_coefficient_W_per_m2_K": 30.0,
+          "radiation_coefficient_W_per_m2_K": 4.0,
+          "conduction_coefficient_W_per_m_K": 400.0
+        },
+        {
+          "node_id": "test_system_001_001_fan",
+          "component_type": "fan",
+          "position": [
+            10.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 3000.0,
+          "thermal_resistance_K_per_W": 0.03,
+          "surface_area_m2": 1.0,
+          "temperature_K": 363.4435196647475,
+          "pressure_Pa": 210393.59416411727,
+          "mass_flow_rate_kg_per_s": 0.16634675836759608,
+          "convection_coefficient_W_per_m2_K": 40.0,
+          "radiation_coefficient_W_per_m2_K": 6.0,
+          "conduction_coefficient_W_per_m_K": 25.0
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "test_system_001_001_thermal_0",
+          "source_node": "test_system_001_001_compressor",
+          "target_node": "test_system_001_001_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 4.838709677419355,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_1",
+          "source_node": "test_system_001_001_compressor",
+          "target_node": "test_system_001_001_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.8,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_2",
+          "source_node": "test_system_001_001_compressor",
+          "target_node": "test_system_001_001_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 7.936507936507937,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.25,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_3",
+          "source_node": "test_system_001_001_compressor",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.5,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_4",
+          "source_node": "test_system_001_001_compressor",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_5",
+          "source_node": "test_system_001_001_evaporator",
+          "target_node": "test_system_001_001_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 4.838709677419355,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_6",
+          "source_node": "test_system_001_001_evaporator",
+          "target_node": "test_system_001_001_compressor",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.8,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_7",
+          "source_node": "test_system_001_001_evaporator",
+          "target_node": "test_system_001_001_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.7027027027027026,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.3,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_8",
+          "source_node": "test_system_001_001_evaporator",
+          "target_node": "test_system_001_001_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.85,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_9",
+          "source_node": "test_system_001_001_evaporator",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 6.557377049180328,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.4,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_10",
+          "source_node": "test_system_001_001_evaporator",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_11",
+          "source_node": "test_system_001_001_evaporator",
+          "target_node": "test_system_001_001_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 14.634146341463413,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.6,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_12",
+          "source_node": "test_system_001_001_condenser",
+          "target_node": "test_system_001_001_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 7.936507936507937,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.25,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_13",
+          "source_node": "test_system_001_001_condenser",
+          "target_node": "test_system_001_001_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.7937219730941703,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_14",
+          "source_node": "test_system_001_001_condenser",
+          "target_node": "test_system_001_001_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.75,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_15",
+          "source_node": "test_system_001_001_condenser",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 5.691056910569104,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.35,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_16",
+          "source_node": "test_system_001_001_condenser",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_17",
+          "source_node": "test_system_001_001_condenser",
+          "target_node": "test_system_001_001_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 16.86746987951807,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.7,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_18",
+          "source_node": "test_system_001_001_expansion_valve",
+          "target_node": "test_system_001_001_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.7027027027027026,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.3,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_19",
+          "source_node": "test_system_001_001_expansion_valve",
+          "target_node": "test_system_001_001_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 200.0,
+          "coupling_strength": 0.85,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_20",
+          "source_node": "test_system_001_001_expansion_valve",
+          "target_node": "test_system_001_001_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.7937219730941703,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_21",
+          "source_node": "test_system_001_001_expansion_valve",
+          "target_node": "test_system_001_001_condenser",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.75,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_22",
+          "source_node": "test_system_001_001_expansion_valve",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 3.1249999999999996,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.5,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_23",
+          "source_node": "test_system_001_001_expansion_valve",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_24",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.5,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_25",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_compressor",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_26",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 6.557377049180328,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.4,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_27",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_28",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 5.691056910569104,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.35,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_29",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_condenser",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_30",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 3.1249999999999996,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.5,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_mass_31",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_32",
+          "source_node": "test_system_001_001_refrigerant_lines",
+          "target_node": "test_system_001_001_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.6666666666666665,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_33",
+          "source_node": "test_system_001_001_fan",
+          "target_node": "test_system_001_001_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 14.634146341463413,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.6,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_34",
+          "source_node": "test_system_001_001_fan",
+          "target_node": "test_system_001_001_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 16.86746987951807,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.7,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_001_thermal_35",
+          "source_node": "test_system_001_001_fan",
+          "target_node": "test_system_001_001_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.6666666666666665,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        }
+      ],
+      "interaction_matrix": {
+        "matrix_id": "test_system_001_001_interaction_matrix",
+        "component_list": [
+          "test_system_001_001_compressor",
+          "test_system_001_001_evaporator",
+          "test_system_001_001_condenser",
+          "test_system_001_001_expansion_valve",
+          "test_system_001_001_refrigerant_lines",
+          "test_system_001_001_fan"
+        ],
+        "thermal_interaction_matrix": [
+          [
+            750000.0,
+            4.838709677419355,
+            7.936507936507937,
+            0.0,
+            2.5,
+            0.0
+          ],
+          [
+            4.838709677419355,
+            8000000.0,
+            0.0,
+            2.7027027027027026,
+            6.557377049180328,
+            14.634146341463413
+          ],
+          [
+            7.936507936507937,
+            0.0,
+            8000000.0,
+            1.7937219730941703,
+            5.691056910569104,
+            16.86746987951807
+          ],
+          [
+            0.0,
+            2.7027027027027026,
+            1.7937219730941703,
+            5000.0,
+            3.1249999999999996,
+            0.0
+          ],
+          [
+            2.5,
+            6.557377049180328,
+            5.691056910569104,
+            3.1249999999999996,
+            40000.0,
+            1.6666666666666665
+          ],
+          [
+            0.0,
+            14.634146341463413,
+            16.86746987951807,
+            0.0,
+            1.6666666666666665,
+            100000.0
+          ]
+        ],
+        "mass_interaction_matrix": [
+          [
+            1.0,
+            0.001,
+            0.0,
+            0.0,
+            0.001,
+            0.0
+          ],
+          [
+            0.001,
+            1.0,
+            0.0,
+            0.0005,
+            0.001,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0005,
+            0.001,
+            0.0
+          ],
+          [
+            0.0,
+            0.005,
+            0.0005,
+            1.0,
+            0.0005,
+            0.0
+          ],
+          [
+            0.001,
+            0.001,
+            0.001,
+            0.0005,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "control_interaction_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "connectivity_matrix": [
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "adjacency_matrix": [
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "eigenvalues": [
+          "(749999.9999968854+0j)",
+          "(40000.0002144483+0j)",
+          "(4999.999719666693+0j)",
+          "(99999.99998317222+0j)",
+          "(8000000.000085218+0j)",
+          "(8000000.000000607+0j)"
+        ],
+        "stability_margin": 0.9981307078635508,
+        "coupling_strength": 201133.01248116992
+      },
+      "network_properties": {
+        "network_density": 0.7333333333333333,
+        "avg_in_degree_centrality": 0.7333333333333334,
+        "avg_out_degree_centrality": 0.7333333333333334,
+        "avg_betweenness_centrality": 0.06666666666666667,
+        "clustering_coefficient": 0.6,
+        "average_path_length": 1.2666666666666666,
+        "thermal_matrix_condition": 1600.0000897236969,
+        "mass_matrix_condition": 1.0065671760649681,
+        "stability_margin": 0.9981307078635508,
+        "coupling_strength": 201133.01248116992,
+        "eigenvalue_spread": 7995000.000365552
+      },
+      "heat_sources": {
+        "compressor": -4.128758813420973,
+        "evaporator": -1312.6713729443795,
+        "condenser": 3273.3358160285334
+      },
+      "heat_transfer_simulation": [
+        {
+          "time_s": 0.0,
+          "compressor_temperature_K": 327.8224287028745,
+          "evaporator_temperature_K": 313.2143513484659,
+          "condenser_temperature_K": 309.1060028960007,
+          "expansion_valve_temperature_K": 307.16424358523005,
+          "refrigerant_lines_temperature_K": 318.7945172833387,
+          "fan_temperature_K": 380.32224722294063
+        },
+        {
+          "time_s": 5.0,
+          "compressor_temperature_K": 329.40963973373675,
+          "evaporator_temperature_K": 318.6892807801091,
+          "condenser_temperature_K": 315.2124279652247,
+          "expansion_valve_temperature_K": 331.1363272835805,
+          "refrigerant_lines_temperature_K": 334.3603152780529,
+          "fan_temperature_K": 397.5368889609034
+        },
+        {
+          "time_s": 10.0,
+          "compressor_temperature_K": 331.0348073579436,
+          "evaporator_temperature_K": 324.4307488749607,
+          "condenser_temperature_K": 321.49991530962,
+          "expansion_valve_temperature_K": 355.8523455232221,
+          "refrigerant_lines_temperature_K": 350.37167589248304,
+          "fan_temperature_K": 415.09997045902463
+        },
+        {
+          "time_s": 15.0,
+          "compressor_temperature_K": 332.69921177948316,
+          "evaporator_temperature_K": 330.4451400930528,
+          "condenser_temperature_K": 327.97265187613493,
+          "expansion_valve_temperature_K": 381.3366736374914,
+          "refrigerant_lines_temperature_K": 366.84304575184507,
+          "fan_temperature_K": 433.02432043838553
+        },
+        {
+          "time_s": 20.0,
+          "compressor_temperature_K": 334.4041666152671,
+          "evaporator_temperature_K": 336.739060483327,
+          "condenser_temperature_K": 334.63497148193363,
+          "expansion_valve_temperature_K": 407.61438607192156,
+          "refrigerant_lines_temperature_K": 383.7892876015758,
+          "fan_temperature_K": 451.3230811734304
+        },
+        {
+          "time_s": 25.0,
+          "compressor_temperature_K": 336.1510199879021,
+          "evaporator_temperature_K": 343.31934354008894,
+          "condenser_temperature_K": 341.4913586378352,
+          "expansion_valve_temperature_K": 434.7112780113381,
+          "refrigerant_lines_temperature_K": 401.2256930066986,
+          "fan_temperature_K": 470.00971918138913
+        },
+        {
+          "time_s": 30.0,
+          "compressor_temperature_K": 337.9411556485122,
+          "evaporator_temperature_K": 350.19305624632307,
+          "condenser_temperature_K": 348.5464524961281,
+          "expansion_valve_temperature_K": 462.65388763065937,
+          "refrigerant_lines_temperature_K": 419.1679954218693,
+          "fan_temperature_K": 489.0980361972307
+        },
+        {
+          "time_s": 35.0,
+          "compressor_temperature_K": 339.7759941306552,
+          "evaporator_temperature_K": 357.36750531489525,
+          "condenser_temperature_K": 355.80505092713037,
+          "expansion_valve_temperature_K": 491.46951898830497,
+          "refrigerant_lines_temperature_K": 437.63238364330175,
+          "fan_temperature_K": 508.6021804433371
+        },
+        {
+          "time_s": 40.0,
+          "compressor_temperature_K": 341.6569939363853,
+          "evaporator_temperature_K": 364.8502436288345,
+          "condenser_temperature_K": 363.2721147294632,
+          "expansion_valve_temperature_K": 521.186265581744,
+          "refrigerant_lines_temperature_K": 456.63551565399075,
+          "fan_temperature_K": 528.5366582033838
+        },
+        {
+          "time_s": 45.0,
+          "compressor_temperature_K": 343.5856527552675,
+          "evaporator_temperature_K": 372.64907688605877,
+          "condenser_temperature_K": 370.95277197364004,
+          "expansion_valve_temperature_K": 551.833034585328,
+          "refrigerant_lines_temperature_K": 476.1945328740651,
+          "fan_temperature_K": 548.9163457100645
+        },
+        {
+          "time_s": 50.0,
+          "compressor_temperature_K": 345.56350871754546,
+          "evaporator_temperature_K": 380.77207045957147,
+          "condenser_temperature_K": 378.8523224861239,
+          "expansion_valve_temperature_K": 583.4395717909329,
+          "refrigerant_lines_temperature_K": 496.32707482845206,
+          "fan_temperature_K": 569.7565013566297
+        },
+        {
+          "time_s": 55.0,
+          "compressor_temperature_K": 347.59214168242625,
+          "evaporator_temperature_K": 389.22755647044687,
+          "condenser_temperature_K": 386.97624247782693,
+          "expansion_valve_temperature_K": 616.0364872727824,
+          "refrigerant_lines_temperature_K": 517.0512942443012,
+          "fan_temperature_K": 591.0727782425464
+        }
+      ]
+    },
+    {
+      "scenario_id": 2,
+      "component_states": {
+        "compressor": {
+          "temperature_K": 339.88477656805117,
+          "pressure_Pa": 1607068.1184549385,
+          "mass_flow_rate_kg_per_s": 0.44244306816704315
+        },
+        "evaporator": {
+          "temperature_K": 323.0217426422806,
+          "pressure_Pa": 1517651.4321476123,
+          "mass_flow_rate_kg_per_s": 0.40574855801248955
+        },
+        "condenser": {
+          "temperature_K": 369.90848673467485,
+          "pressure_Pa": 1959722.4054264585,
+          "mass_flow_rate_kg_per_s": 0.1523389775213014
+        },
+        "expansion_valve": {
+          "temperature_K": 277.13021761096195,
+          "pressure_Pa": 693027.8765336084,
+          "mass_flow_rate_kg_per_s": 0.47654413315120336
+        },
+        "refrigerant_lines": {
+          "temperature_K": 313.89231334076055,
+          "pressure_Pa": 812071.1660527088,
+          "mass_flow_rate_kg_per_s": 0.1808214659829483
+        },
+        "fan": {
+          "temperature_K": 333.89900114106564,
+          "pressure_Pa": 812345.2980111587,
+          "mass_flow_rate_kg_per_s": 0.07832975354751734
+        }
+      },
+      "nodes": [
+        {
+          "node_id": "test_system_001_002_compressor",
+          "component_type": "compressor",
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 15000.0,
+          "thermal_resistance_K_per_W": 0.02,
+          "surface_area_m2": 2.5,
+          "temperature_K": 339.88477656805117,
+          "pressure_Pa": 1607068.1184549385,
+          "mass_flow_rate_kg_per_s": 0.44244306816704315,
+          "convection_coefficient_W_per_m2_K": 25.0,
+          "radiation_coefficient_W_per_m2_K": 5.0,
+          "conduction_coefficient_W_per_m_K": 50.0
+        },
+        {
+          "node_id": "test_system_001_002_evaporator",
+          "component_type": "evaporator",
+          "position": [
+            2.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 8000.0,
+          "thermal_resistance_K_per_W": 0.001,
+          "surface_area_m2": 15.0,
+          "temperature_K": 323.0217426422806,
+          "pressure_Pa": 1517651.4321476123,
+          "mass_flow_rate_kg_per_s": 0.40574855801248955,
+          "convection_coefficient_W_per_m2_K": 150.0,
+          "radiation_coefficient_W_per_m2_K": 8.0,
+          "conduction_coefficient_W_per_m_K": 200.0
+        },
+        {
+          "node_id": "test_system_001_002_condenser",
+          "component_type": "condenser",
+          "position": [
+            4.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 12000.0,
+          "thermal_resistance_K_per_W": 0.0015,
+          "surface_area_m2": 18.0,
+          "temperature_K": 369.90848673467485,
+          "pressure_Pa": 1959722.4054264585,
+          "mass_flow_rate_kg_per_s": 0.1523389775213014,
+          "convection_coefficient_W_per_m2_K": 120.0,
+          "radiation_coefficient_W_per_m2_K": 10.0,
+          "conduction_coefficient_W_per_m_K": 180.0
+        },
+        {
+          "node_id": "test_system_001_002_expansion_valve",
+          "component_type": "expansion_valve",
+          "position": [
+            6.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 500.0,
+          "thermal_resistance_K_per_W": 0.1,
+          "surface_area_m2": 0.1,
+          "temperature_K": 277.13021761096195,
+          "pressure_Pa": 693027.8765336084,
+          "mass_flow_rate_kg_per_s": 0.47654413315120336,
+          "convection_coefficient_W_per_m2_K": 20.0,
+          "radiation_coefficient_W_per_m2_K": 3.0,
+          "conduction_coefficient_W_per_m_K": 15.0
+        },
+        {
+          "node_id": "test_system_001_002_refrigerant_lines",
+          "component_type": "refrigerant_lines",
+          "position": [
+            8.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 2000.0,
+          "thermal_resistance_K_per_W": 0.05,
+          "surface_area_m2": 5.0,
+          "temperature_K": 313.89231334076055,
+          "pressure_Pa": 812071.1660527088,
+          "mass_flow_rate_kg_per_s": 0.1808214659829483,
+          "convection_coefficient_W_per_m2_K": 30.0,
+          "radiation_coefficient_W_per_m2_K": 4.0,
+          "conduction_coefficient_W_per_m_K": 400.0
+        },
+        {
+          "node_id": "test_system_001_002_fan",
+          "component_type": "fan",
+          "position": [
+            10.0,
+            0.0,
+            0.0
+          ],
+          "thermal_mass_J_per_K": 3000.0,
+          "thermal_resistance_K_per_W": 0.03,
+          "surface_area_m2": 1.0,
+          "temperature_K": 333.89900114106564,
+          "pressure_Pa": 812345.2980111587,
+          "mass_flow_rate_kg_per_s": 0.07832975354751734,
+          "convection_coefficient_W_per_m2_K": 40.0,
+          "radiation_coefficient_W_per_m2_K": 6.0,
+          "conduction_coefficient_W_per_m_K": 25.0
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "test_system_001_002_thermal_0",
+          "source_node": "test_system_001_002_compressor",
+          "target_node": "test_system_001_002_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 4.838709677419355,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_1",
+          "source_node": "test_system_001_002_compressor",
+          "target_node": "test_system_001_002_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.8,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_2",
+          "source_node": "test_system_001_002_compressor",
+          "target_node": "test_system_001_002_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 7.936507936507937,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.25,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_3",
+          "source_node": "test_system_001_002_compressor",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.5,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_4",
+          "source_node": "test_system_001_002_compressor",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_5",
+          "source_node": "test_system_001_002_evaporator",
+          "target_node": "test_system_001_002_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 4.838709677419355,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_6",
+          "source_node": "test_system_001_002_evaporator",
+          "target_node": "test_system_001_002_compressor",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.8,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_7",
+          "source_node": "test_system_001_002_evaporator",
+          "target_node": "test_system_001_002_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.7027027027027026,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.3,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_8",
+          "source_node": "test_system_001_002_evaporator",
+          "target_node": "test_system_001_002_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.85,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_9",
+          "source_node": "test_system_001_002_evaporator",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 6.557377049180328,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.4,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_10",
+          "source_node": "test_system_001_002_evaporator",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_11",
+          "source_node": "test_system_001_002_evaporator",
+          "target_node": "test_system_001_002_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 14.634146341463413,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.6,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_12",
+          "source_node": "test_system_001_002_condenser",
+          "target_node": "test_system_001_002_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 7.936507936507937,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.25,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_13",
+          "source_node": "test_system_001_002_condenser",
+          "target_node": "test_system_001_002_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.7937219730941703,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_14",
+          "source_node": "test_system_001_002_condenser",
+          "target_node": "test_system_001_002_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.75,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_15",
+          "source_node": "test_system_001_002_condenser",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 5.691056910569104,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.35,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_16",
+          "source_node": "test_system_001_002_condenser",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_17",
+          "source_node": "test_system_001_002_condenser",
+          "target_node": "test_system_001_002_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 16.86746987951807,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.7,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_18",
+          "source_node": "test_system_001_002_expansion_valve",
+          "target_node": "test_system_001_002_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.7027027027027026,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.3,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_19",
+          "source_node": "test_system_001_002_expansion_valve",
+          "target_node": "test_system_001_002_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 200.0,
+          "coupling_strength": 0.85,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_20",
+          "source_node": "test_system_001_002_expansion_valve",
+          "target_node": "test_system_001_002_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.7937219730941703,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_21",
+          "source_node": "test_system_001_002_expansion_valve",
+          "target_node": "test_system_001_002_condenser",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.75,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_22",
+          "source_node": "test_system_001_002_expansion_valve",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 3.1249999999999996,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.5,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_23",
+          "source_node": "test_system_001_002_expansion_valve",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_24",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_compressor",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 2.5,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.2,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_25",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_compressor",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_26",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 6.557377049180328,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.4,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_27",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_evaporator",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_28",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 5.691056910569104,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.35,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_29",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_condenser",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 1000.0,
+          "coupling_strength": 0.9,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_30",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_expansion_valve",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 3.1249999999999996,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.5,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_mass_31",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_expansion_valve",
+          "interaction_type": "mass_transfer",
+          "conductance_W_per_K": 0.0,
+          "flow_resistance_Pa_s_per_kg": 2000.0,
+          "coupling_strength": 0.95,
+          "time_constant_s": 1.0,
+          "delay_s": 0.5
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_32",
+          "source_node": "test_system_001_002_refrigerant_lines",
+          "target_node": "test_system_001_002_fan",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.6666666666666665,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_33",
+          "source_node": "test_system_001_002_fan",
+          "target_node": "test_system_001_002_evaporator",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 14.634146341463413,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.6,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_34",
+          "source_node": "test_system_001_002_fan",
+          "target_node": "test_system_001_002_condenser",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 16.86746987951807,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.7,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        },
+        {
+          "edge_id": "test_system_001_002_thermal_35",
+          "source_node": "test_system_001_002_fan",
+          "target_node": "test_system_001_002_refrigerant_lines",
+          "interaction_type": "heat_transfer",
+          "conductance_W_per_K": 1.6666666666666665,
+          "flow_resistance_Pa_s_per_kg": 0.0,
+          "coupling_strength": 0.15,
+          "time_constant_s": 30.0,
+          "delay_s": 1.0
+        }
+      ],
+      "interaction_matrix": {
+        "matrix_id": "test_system_001_002_interaction_matrix",
+        "component_list": [
+          "test_system_001_002_compressor",
+          "test_system_001_002_evaporator",
+          "test_system_001_002_condenser",
+          "test_system_001_002_expansion_valve",
+          "test_system_001_002_refrigerant_lines",
+          "test_system_001_002_fan"
+        ],
+        "thermal_interaction_matrix": [
+          [
+            750000.0,
+            4.838709677419355,
+            7.936507936507937,
+            0.0,
+            2.5,
+            0.0
+          ],
+          [
+            4.838709677419355,
+            8000000.0,
+            0.0,
+            2.7027027027027026,
+            6.557377049180328,
+            14.634146341463413
+          ],
+          [
+            7.936507936507937,
+            0.0,
+            8000000.0,
+            1.7937219730941703,
+            5.691056910569104,
+            16.86746987951807
+          ],
+          [
+            0.0,
+            2.7027027027027026,
+            1.7937219730941703,
+            5000.0,
+            3.1249999999999996,
+            0.0
+          ],
+          [
+            2.5,
+            6.557377049180328,
+            5.691056910569104,
+            3.1249999999999996,
+            40000.0,
+            1.6666666666666665
+          ],
+          [
+            0.0,
+            14.634146341463413,
+            16.86746987951807,
+            0.0,
+            1.6666666666666665,
+            100000.0
+          ]
+        ],
+        "mass_interaction_matrix": [
+          [
+            1.0,
+            0.001,
+            0.0,
+            0.0,
+            0.001,
+            0.0
+          ],
+          [
+            0.001,
+            1.0,
+            0.0,
+            0.0005,
+            0.001,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0005,
+            0.001,
+            0.0
+          ],
+          [
+            0.0,
+            0.005,
+            0.0005,
+            1.0,
+            0.0005,
+            0.0
+          ],
+          [
+            0.001,
+            0.001,
+            0.001,
+            0.0005,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "control_interaction_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "connectivity_matrix": [
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "adjacency_matrix": [
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "eigenvalues": [
+          "(749999.9999968854+0j)",
+          "(40000.0002144483+0j)",
+          "(4999.999719666693+0j)",
+          "(99999.99998317222+0j)",
+          "(8000000.000085218+0j)",
+          "(8000000.000000607+0j)"
+        ],
+        "stability_margin": 0.9981307078635508,
+        "coupling_strength": 201133.01248116992
+      },
+      "network_properties": {
+        "network_density": 0.7333333333333333,
+        "avg_in_degree_centrality": 0.7333333333333334,
+        "avg_out_degree_centrality": 0.7333333333333334,
+        "avg_betweenness_centrality": 0.06666666666666667,
+        "clustering_coefficient": 0.6,
+        "average_path_length": 1.2666666666666666,
+        "thermal_matrix_condition": 1600.0000897236969,
+        "mass_matrix_condition": 1.0065671760649681,
+        "stability_margin": 0.9981307078635508,
+        "coupling_strength": 201133.01248116992,
+        "eigenvalue_spread": 7995000.000365552
+      },
+      "heat_sources": {
+        "compressor": -4109.327528843458,
+        "evaporator": -1965.8393968685505,
+        "condenser": -142.32504914916535
+      },
+      "heat_transfer_simulation": [
+        {
+          "time_s": 0.0,
+          "compressor_temperature_K": 340.2761743438472,
+          "evaporator_temperature_K": 327.62949392091303,
+          "condenser_temperature_K": 374.271269276889,
+          "expansion_valve_temperature_K": 302.30479957847035,
+          "refrigerant_lines_temperature_K": 330.1312828857291,
+          "fan_temperature_K": 353.0485370861421
+        },
+        {
+          "time_s": 5.0,
+          "compressor_temperature_K": 340.7000782039363,
+          "evaporator_temperature_K": 332.5226548425994,
+          "condenser_temperature_K": 378.8272533415329,
+          "expansion_valve_temperature_K": 328.18963935169967,
+          "refrigerant_lines_temperature_K": 346.7867738370716,
+          "fan_temperature_K": 372.4782139626821
+        },
+        {
+          "time_s": 10.0,
+          "compressor_temperature_K": 341.15780670273983,
+          "evaporator_temperature_K": 337.706792791106,
+          "condenser_temperature_K": 383.5800338053331,
+          "expansion_valve_temperature_K": 354.8089324968948,
+          "refrigerant_lines_temperature_K": 363.87313314955475,
+          "fan_temperature_K": 392.201581353501
+        },
+        {
+          "time_s": 15.0,
+          "compressor_temperature_K": 341.65070884041364,
+          "evaporator_temperature_K": 343.187702737422,
+          "condenser_temperature_K": 388.53335723824085,
+          "expansion_valve_temperature_K": 382.1875378745619,
+          "refrigerant_lines_temperature_K": 381.4051039185773,
+          "fan_temperature_K": 412.2324655447086
+        },
+        {
+          "time_s": 20.0,
+          "compressor_temperature_K": 342.1801651613123,
+          "evaporator_temperature_K": 348.97141260507175,
+          "condenser_temperature_K": 393.69112538235703,
+          "expansion_valve_temperature_K": 410.35099889082943,
+          "refrigerant_lines_temperature_K": 399.3978377945514,
+          "fan_temperature_K": 432.58498044146154
+        },
+        {
+          "time_s": 25.0,
+          "compressor_temperature_K": 342.74758888067566,
+          "evaporator_temperature_K": 355.06418882824795,
+          "condenser_temperature_K": 399.057398759006,
+          "expansion_valve_temperature_K": 439.3255653441522,
+          "refrigerant_lines_temperature_K": 417.86690775308546,
+          "fan_temperature_K": 453.2735387469014
+        },
+        {
+          "time_s": 30.0,
+          "compressor_temperature_K": 343.35442704051195,
+          "evaporator_temperature_K": 361.4725421033618,
+          "condenser_temperature_K": 404.63640040276834,
+          "expansion_valve_temperature_K": 469.1382158860249,
+          "refrigerant_lines_temperature_K": 436.82832123194606,
+          "fan_temperature_K": 474.31286341348596
+        },
+        {
+          "time_s": 35.0,
+          "compressor_temperature_K": 344.0021616955216,
+          "evaporator_temperature_K": 368.2032333399705,
+          "condenser_temperature_K": 410.4325197302195,
+          "expansion_valve_temperature_K": 499.81668111464114,
+          "refrigerant_lines_temperature_K": 456.29853364581027,
+          "fan_temperature_K": 495.7179993760889
+        },
+        {
+          "time_s": 40.0,
+          "compressor_temperature_K": 344.6923111301645,
+          "evaporator_temperature_K": 375.26327981883156,
+          "condenser_temperature_K": 416.4503165417856,
+          "expansion_valve_temperature_K": 531.3894673211184,
+          "refrigerant_lines_temperature_K": 476.2944622903575,
+          "fan_temperature_K": 517.5043255765792
+        },
+        {
+          "time_s": 45.0,
+          "compressor_temperature_K": 345.42643110780455,
+          "evaporator_temperature_K": 382.6599615579766,
+          "condenser_temperature_K": 422.694525163869,
+          "expansion_valve_temperature_K": 563.8858809084362,
+          "refrigerant_lines_temperature_K": 496.8335006474682,
+          "fan_temperature_K": 539.6875672896634
+        },
+        {
+          "time_s": 50.0,
+          "compressor_temperature_K": 346.2061161530041,
+          "evaporator_temperature_K": 390.4008278990246,
+          "condenser_temperature_K": 429.1700587348196,
+          "expansion_valve_temperature_K": 597.3360535037854,
+          "refrigerant_lines_temperature_K": 517.9335331036688,
+          "fan_temperature_K": 562.2838087601767
+        },
+        {
+          "time_s": 55.0,
+          "compressor_temperature_K": 347.0330008680813,
+          "evaporator_temperature_K": 398.4937043113502,
+          "condenser_temperature_K": 435.88201363693736,
+          "expansion_valve_temperature_K": 631.7709677857404,
+          "refrigerant_lines_temperature_K": 539.61295009434,
+          "fan_temperature_K": 585.3095061624726
+        }
+      ]
+    }
+  ],
+  "generation_timestamp": "2025-11-29T22:34:01.742082",
+  "model_parameters": {
+    "component_properties": {
+      "compressor": {
+        "thermal_mass_J_per_K": 15000.0,
+        "thermal_resistance_K_per_W": 0.02,
+        "surface_area_m2": 2.5,
+        "convection_coefficient_W_per_m2_K": 25.0,
+        "radiation_coefficient_W_per_m2_K": 5.0,
+        "conduction_coefficient_W_per_m_K": 50.0
+      },
+      "evaporator": {
+        "thermal_mass_J_per_K": 8000.0,
+        "thermal_resistance_K_per_W": 0.001,
+        "surface_area_m2": 15.0,
+        "convection_coefficient_W_per_m2_K": 150.0,
+        "radiation_coefficient_W_per_m2_K": 8.0,
+        "conduction_coefficient_W_per_m_K": 200.0
+      },
+      "condenser": {
+        "thermal_mass_J_per_K": 12000.0,
+        "thermal_resistance_K_per_W": 0.0015,
+        "surface_area_m2": 18.0,
+        "convection_coefficient_W_per_m2_K": 120.0,
+        "radiation_coefficient_W_per_m2_K": 10.0,
+        "conduction_coefficient_W_per_m_K": 180.0
+      },
+      "expansion_valve": {
+        "thermal_mass_J_per_K": 500.0,
+        "thermal_resistance_K_per_W": 0.1,
+        "surface_area_m2": 0.1,
+        "convection_coefficient_W_per_m2_K": 20.0,
+        "radiation_coefficient_W_per_m2_K": 3.0,
+        "conduction_coefficient_W_per_m_K": 15.0
+      },
+      "refrigerant_lines": {
+        "thermal_mass_J_per_K": 2000.0,
+        "thermal_resistance_K_per_W": 0.05,
+        "surface_area_m2": 5.0,
+        "convection_coefficient_W_per_m2_K": 30.0,
+        "radiation_coefficient_W_per_m2_K": 4.0,
+        "conduction_coefficient_W_per_m_K": 400.0
+      },
+      "fan": {
+        "thermal_mass_J_per_K": 3000.0,
+        "thermal_resistance_K_per_W": 0.03,
+        "surface_area_m2": 1.0,
+        "convection_coefficient_W_per_m2_K": 40.0,
+        "radiation_coefficient_W_per_m2_K": 6.0,
+        "conduction_coefficient_W_per_m_K": 25.0
+      }
+    },
+    "base_interaction_strengths": {
+      "thermal": "[[1.   0.15 0.25 0.05 0.2  0.1 ]\n [0.15 1.   0.05 0.3  0.4  0.6 ]\n [0.25 0.05 1.   0.2  0.35 0.7 ]\n [0.05 0.3  0.2  1.   0.5  0.02]\n [0.2  0.4  0.35 0.5  1.   0.15]\n [0.1  0.6  0.7  0.02 0.15 1.  ]]",
+      "mass": "[[1.   0.8  0.05 0.1  0.9  0.  ]\n [0.8  1.   0.02 0.85 0.95 0.  ]\n [0.05 0.02 1.   0.75 0.9  0.  ]\n [0.1  0.85 0.75 1.   0.95 0.  ]\n [0.9  0.95 0.9  0.95 1.   0.  ]\n [0.   0.   0.   0.   0.   1.  ]]",
+      "control": "[[1.   0.3  0.2  0.4  0.1  0.5 ]\n [0.3  1.   0.15 0.25 0.05 0.8 ]\n [0.2  0.15 1.   0.35 0.05 0.9 ]\n [0.4  0.25 0.35 1.   0.1  0.05]\n [0.1  0.05 0.05 0.1  1.   0.02]\n [0.5  0.8  0.9  0.05 0.02 1.  ]]"
+    },
+    "component_labels": [
+      "compressor",
+      "evaporator",
+      "condenser",
+      "expansion_valve",
+      "refrigerant_lines",
+      "fan"
+    ],
+    "interaction_time_constants": {
+      "thermal": {
+        "fast": 5.0,
+        "medium": 30.0,
+        "slow": 300.0
+      },
+      "mass": {
+        "fast": 1.0,
+        "medium": 5.0,
+        "slow": 30.0
+      },
+      "control": {
+        "fast": 0.1,
+        "medium": 1.0,
+        "slow": 10.0
+      }
+    }
+  }
+}

@@ -25,7 +25,7 @@
     {
       "component_id": "test_evap_001",
       "age_hours": 17520,
-      "corrosion_depth": 0.02493590571252578,
+      "corrosion_depth": 0.024935905712525776,
       "scaling_thickness": 0.0,
       "fin_degradation": 0.24,
       "tube_degradation": 0.011000000000000001,
@@ -49,5 +49,5 @@
       }
     }
   ],
-  "generation_timestamp": "2025-11-25T02:19:21.291579"
+  "generation_timestamp": "2025-11-30T00:28:04.493881"
 }

@@ -131,6 +131,46 @@ class RefrigerantType(Enum):
     
     # Air and Mixtures
     AIR = "Air"
+    
+    # Industrial Heat Transfer Fluids (for AIRTHIUM high-temperature applications)
+    # Thermal Oils
+    THERMINOL_VP1 = "TherminolVP1"      # Synthetic aromatic thermal oil (12-400°C)
+    THERMINOL_66 = "Therminol66"        # Modified terphenyl (0-345°C)
+    DOWTHERM_A = "DowthermA"            # Diphenyl oxide/biphenyl eutectic (12-400°C)
+    DOWTHERM_Q = "DowthermQ"            # Diphenyl oxide/biphenyl (15-330°C)
+    MARLOTHERM_SH = "MarlothermSH"      # Synthetic hydrocarbon (0-350°C)
+    SYLTHERM_800 = "Syltherm800"        # Silicone fluid (-40-400°C)
+    
+    # Molten Salts (for very high temperature applications)
+    SOLAR_SALT = "SolarSalt"            # NaNO3/KNO3 (220-600°C)
+    HITEC = "HITEC"                     # NaNO2/NaNO3/KNO3 (142-535°C)
+    HITEC_XL = "HITECXL"               # Ca(NO3)2/NaNO3/KNO3 (120-500°C)
+    
+    # High Temperature Water/Steam
+    PRESSURIZED_WATER = "PressurizedWater"  # High pressure water (up to 374°C)
+    SUPERHEATED_STEAM = "SuperheatedSteam"  # Steam above 100°C
+    
+    # Organic Heat Transfer Fluids
+    ETHYLENE_GLYCOL = "EthyleneGlycol"  # Antifreeze/coolant (-12-197°C)
+    PROPYLENE_GLYCOL = "PropyleneGlycol" # Food-grade antifreeze (-59-188°C)
+    DIETHYLENE_GLYCOL = "DiethyleneGlycol" # High boiling point glycol (245°C)
+    TRIETHYLENE_GLYCOL = "TriethyleneGlycol" # Very high boiling point (285°C)
+    
+    # Synthetic Heat Transfer Fluids
+    PARATHERM_NF = "ParathermNF"        # Food grade synthetic (-9-316°C)
+    PARATHERM_MR = "ParathermMR"        # Mineral oil based (-9-288°C)
+    GLOBALTHERM_M = "GlobalthermM"      # Mineral oil based (-9-320°C)
+    
+    # Refrigeration Oils (for compressor lubrication)
+    MINERAL_OIL = "MineralOil"          # Traditional refrigeration oil
+    POLYOL_ESTER = "PolyolEster"        # POE oil for HFC systems
+    POLYALKYLENE_GLYCOL = "PolyalkyleneGlycol" # PAG oil for automotive
+    ALKYLBENZENE = "Alkylbenzene"       # AB oil for HCFC systems
+    
+    # Nanofluids (enhanced heat transfer)
+    WATER_AL2O3_NANOFLUID = "WaterAl2O3Nanofluid"    # Water + alumina nanoparticles
+    WATER_CUO_NANOFLUID = "WaterCuONanofluid"        # Water + copper oxide nanoparticles
+    ETHYLENE_GLYCOL_TIO2_NANOFLUID = "EGTiO2Nanofluid" # EG + titanium dioxide nanoparticles
 
 @dataclass
 class MolecularProperties:
@@ -288,7 +328,34 @@ class MolecularRefrigerantModel:
             RefrigerantType.N_BUTANE: "n-Butane",
             RefrigerantType.PROPYLENE: "Propylene",
             RefrigerantType.ETHYLENE: "Ethylene",
-            RefrigerantType.AIR: "Air"
+            RefrigerantType.AIR: "Air",
+            
+            # Industrial Heat Transfer Fluids (use appropriate CoolProp fluids or water as fallback)
+            RefrigerantType.THERMINOL_VP1: "Water",  # Fallback to water
+            RefrigerantType.THERMINOL_66: "Water",
+            RefrigerantType.DOWTHERM_A: "Water",
+            RefrigerantType.DOWTHERM_Q: "Water",
+            RefrigerantType.MARLOTHERM_SH: "Water",
+            RefrigerantType.SYLTHERM_800: "Water",
+            RefrigerantType.SOLAR_SALT: "Water",
+            RefrigerantType.HITEC: "Water",
+            RefrigerantType.HITEC_XL: "Water",
+            RefrigerantType.PRESSURIZED_WATER: "Water",
+            RefrigerantType.SUPERHEATED_STEAM: "Water",
+            RefrigerantType.ETHYLENE_GLYCOL: "EthyleneGlycol",  # Available in CoolProp
+            RefrigerantType.PROPYLENE_GLYCOL: "PropyleneGlycol",  # Available in CoolProp
+            RefrigerantType.DIETHYLENE_GLYCOL: "Water",  # Fallback
+            RefrigerantType.TRIETHYLENE_GLYCOL: "Water",  # Fallback
+            RefrigerantType.PARATHERM_NF: "Water",
+            RefrigerantType.PARATHERM_MR: "Water",
+            RefrigerantType.GLOBALTHERM_M: "Water",
+            RefrigerantType.MINERAL_OIL: "Water",
+            RefrigerantType.POLYOL_ESTER: "Water",
+            RefrigerantType.POLYALKYLENE_GLYCOL: "Water",
+            RefrigerantType.ALKYLBENZENE: "Water",
+            RefrigerantType.WATER_AL2O3_NANOFLUID: "Water",
+            RefrigerantType.WATER_CUO_NANOFLUID: "Water",
+            RefrigerantType.ETHYLENE_GLYCOL_TIO2_NANOFLUID: "EthyleneGlycol"
         }
         
         # Initialize each fluid using CoolProp
@@ -422,6 +489,91 @@ class MolecularRefrigerantModel:
                 molecular_diameter_angstrom=2.641,
                 lennard_jones_epsilon_K=647.1,
                 lennard_jones_sigma_angstrom=2.641
+            ),
+            
+            # Industrial Heat Transfer Fluids for AIRTHIUM high-temperature applications
+            RefrigerantType.THERMINOL_VP1: MolecularProperties(
+                molecular_weight_kg_per_mol=0.230,  # Synthetic aromatic
+                critical_temperature_K=773.15,      # ~500°C estimated
+                critical_pressure_Pa=2500000,       # 25 bar estimated
+                critical_density_kg_per_m3=350.0,
+                acentric_factor=0.4,
+                dipole_moment_debye=0.5,
+                molecular_diameter_angstrom=6.5,
+                lennard_jones_epsilon_K=773.0,
+                lennard_jones_sigma_angstrom=6.5
+            ),
+            
+            RefrigerantType.DOWTHERM_A: MolecularProperties(
+                molecular_weight_kg_per_mol=0.170,  # Diphenyl oxide/biphenyl
+                critical_temperature_K=763.15,      # ~490°C estimated
+                critical_pressure_Pa=3000000,       # 30 bar estimated
+                critical_density_kg_per_m3=380.0,
+                acentric_factor=0.35,
+                dipole_moment_debye=1.2,
+                molecular_diameter_angstrom=6.0,
+                lennard_jones_epsilon_K=763.0,
+                lennard_jones_sigma_angstrom=6.0
+            ),
+            
+            RefrigerantType.SOLAR_SALT: MolecularProperties(
+                molecular_weight_kg_per_mol=0.085,  # NaNO3/KNO3 mixture
+                critical_temperature_K=1073.15,     # ~800°C estimated
+                critical_pressure_Pa=5000000,       # 50 bar estimated
+                critical_density_kg_per_m3=1800.0,  # High density salt
+                acentric_factor=0.1,
+                dipole_moment_debye=3.0,             # Ionic
+                molecular_diameter_angstrom=4.0,
+                lennard_jones_epsilon_K=1073.0,
+                lennard_jones_sigma_angstrom=4.0
+            ),
+            
+            RefrigerantType.PRESSURIZED_WATER: MolecularProperties(
+                molecular_weight_kg_per_mol=0.018015,
+                critical_temperature_K=647.096,     # Same as water
+                critical_pressure_Pa=22064000,
+                critical_density_kg_per_m3=322.0,
+                acentric_factor=0.3449,
+                dipole_moment_debye=1.855,
+                molecular_diameter_angstrom=2.641,
+                lennard_jones_epsilon_K=647.1,
+                lennard_jones_sigma_angstrom=2.641
+            ),
+            
+            RefrigerantType.ETHYLENE_GLYCOL: MolecularProperties(
+                molecular_weight_kg_per_mol=0.062068,
+                critical_temperature_K=720.0,       # 447°C
+                critical_pressure_Pa=8200000,       # 82 bar
+                critical_density_kg_per_m3=322.0,
+                acentric_factor=0.49,
+                dipole_moment_debye=2.28,
+                molecular_diameter_angstrom=4.8,
+                lennard_jones_epsilon_K=720.0,
+                lennard_jones_sigma_angstrom=4.8
+            ),
+            
+            RefrigerantType.MINERAL_OIL: MolecularProperties(
+                molecular_weight_kg_per_mol=0.400,  # Heavy hydrocarbon mixture
+                critical_temperature_K=673.15,      # ~400°C estimated
+                critical_pressure_Pa=1500000,       # 15 bar estimated
+                critical_density_kg_per_m3=250.0,
+                acentric_factor=0.6,
+                dipole_moment_debye=0.1,             # Non-polar
+                molecular_diameter_angstrom=8.0,
+                lennard_jones_epsilon_K=673.0,
+                lennard_jones_sigma_angstrom=8.0
+            ),
+            
+            RefrigerantType.WATER_AL2O3_NANOFLUID: MolecularProperties(
+                molecular_weight_kg_per_mol=0.018015,  # Base water properties
+                critical_temperature_K=647.096,
+                critical_pressure_Pa=22064000,
+                critical_density_kg_per_m3=350.0,      # Higher density due to nanoparticles
+                acentric_factor=0.3449,
+                dipole_moment_debye=1.855,
+                molecular_diameter_angstrom=2.8,       # Slightly larger due to nanoparticles
+                lennard_jones_epsilon_K=647.1,
+                lennard_jones_sigma_angstrom=2.8
             )
         }
         
