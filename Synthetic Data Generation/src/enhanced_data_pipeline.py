@@ -39,7 +39,7 @@ import traceback
 try:
     from molecular_refrigerant_properties import MolecularRefrigerantModel, RefrigerantType
     from hamiltonian_mechanics import HamiltonianMechanicsModel
-    from phase_space_trajectories import PhaseSpaceTrajectoriesModel
+    from phase_space_trajectories import PhaseSpaceTrajectoryGenerator
     from component_interactions import ComponentInteractionModel
     from temporal_dynamics import TemporalDynamicsGenerator
     from gnn_topology import GNNTopologyGenerator
@@ -49,7 +49,7 @@ try:
     from defrost_cycle_models import DefrostCycleModel
     from building_load_models import MultiZoneBuildingModel, ControlStrategy
     from ambient_conditions import AmbientConditionsModel
-    from fouling_aging_models import FoulingAgingModel
+    from fouling_aging_models import HeatExchangerFoulingModel
     from compressor_wear_models import CompressorWearModel
     from refrigerant_charge_models import RefrigerantChargeModel
     from part_load_cycling import PartLoadCyclingModel
@@ -307,7 +307,7 @@ class EnhancedSyntheticDataGenerator:
             # Core physics models
             self.physics_models['molecular'] = MolecularRefrigerantModel()
             self.physics_models['hamiltonian'] = HamiltonianMechanicsModel()
-            self.physics_models['phase_space'] = PhaseSpaceTrajectoriesModel()
+            self.physics_models['phase_space'] = PhaseSpaceTrajectoryGenerator()
             self.physics_models['component_interactions'] = ComponentInteractionModel()
             self.physics_models['temporal_dynamics'] = TemporalDynamicsGenerator()
             self.physics_models['gnn_topology'] = GNNTopologyGenerator()
@@ -321,7 +321,7 @@ class EnhancedSyntheticDataGenerator:
             self.physics_models['ambient_conditions'] = AmbientConditionsModel()
             
             # Degradation and fault models
-            self.physics_models['fouling_aging'] = FoulingAgingModel()
+            self.physics_models['fouling_aging'] = HeatExchangerFoulingModel()
             self.physics_models['compressor_wear'] = CompressorWearModel()
             self.physics_models['refrigerant_charge'] = RefrigerantChargeModel()
             self.physics_models['part_load_cycling'] = PartLoadCyclingModel()
