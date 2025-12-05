@@ -1,0 +1,166 @@
+{
+  "generation_timestamp": "2025-12-05T04:59:17.038942",
+  "total_cycles": 100,
+  "generation_time_seconds": 37.498812437057495,
+  "models_processed": 26,
+  "dataset_info": {
+    "hamiltonian": {
+      "rows": 100,
+      "columns": 17,
+      "file": "hamiltonian_mini.csv.gz",
+      "size_mb": 0.006351470947265625
+    },
+    "temporal": {
+      "rows": 100,
+      "columns": 17,
+      "file": "temporal_mini.csv.gz",
+      "size_mb": 0.0008172988891601562
+    },
+    "component_interactions": {
+      "rows": 100,
+      "columns": 15,
+      "file": "component_interactions_mini.csv.gz",
+      "size_mb": 0.004685401916503906
+    },
+    "phase_space": {
+      "rows": 100,
+      "columns": 9,
+      "file": "phase_space_mini.csv.gz",
+      "size_mb": 0.00045871734619140625
+    },
+    "sensor_noise": {
+      "rows": 100,
+      "columns": 17,
+      "file": "sensor_noise_mini.csv.gz",
+      "size_mb": 0.0022745132446289062
+    },
+    "fouling_aging": {
+      "rows": 100,
+      "columns": 8,
+      "file": "fouling_aging_mini.csv.gz",
+      "size_mb": 0.0024900436401367188
+    },
+    "compressor_wear": {
+      "rows": 100,
+      "columns": 8,
+      "file": "compressor_wear_mini.csv.gz",
+      "size_mb": 0.00174713134765625
+    },
+    "fault_injection": {
+      "rows": 100,
+      "columns": 8,
+      "file": "fault_injection_mini.csv.gz",
+      "size_mb": 0.0024709701538085938
+    },
+    "control_system": {
+      "rows": 100,
+      "columns": 8,
+      "file": "control_system_mini.csv.gz",
+      "size_mb": 0.0025043487548828125
+    },
+    "startup_shutdown": {
+      "rows": 100,
+      "columns": 8,
+      "file": "startup_shutdown_mini.csv.gz",
+      "size_mb": 0.00043392181396484375
+    },
+    "part_load_cycling": {
+      "rows": 100,
+      "columns": 8,
+      "file": "part_load_cycling_mini.csv.gz",
+      "size_mb": 0.002475738525390625
+    },
+    "cycle_generator": {
+      "rows": 100,
+      "columns": 8,
+      "file": "cycle_generator_mini.csv.gz",
+      "size_mb": 0.0024080276489257812
+    },
+    "improved_cycle_generator": {
+      "rows": 100,
+      "columns": 8,
+      "file": "improved_cycle_generator_mini.csv.gz",
+      "size_mb": 0.002437591552734375
+    },
+    "thermodynamic_properties": {
+      "rows": 100,
+      "columns": 8,
+      "file": "thermodynamic_properties_mini.csv.gz",
+      "size_mb": 0.0024938583374023438
+    },
+    "component_models": {
+      "rows": 100,
+      "columns": 8,
+      "file": "component_models_mini.csv.gz",
+      "size_mb": 0.0024499893188476562
+    },
+    "performance_maps": {
+      "rows": 100,
+      "columns": 8,
+      "file": "performance_maps_mini.csv.gz",
+      "size_mb": 0.003414154052734375
+    },
+    "ambient_conditions": {
+      "rows": 100,
+      "columns": 9,
+      "file": "ambient_conditions_mini.csv.gz",
+      "size_mb": 0.0034132003784179688
+    },
+    "indoor_performance": {
+      "rows": 100,
+      "columns": 8,
+      "file": "indoor_performance_mini.csv.gz",
+      "size_mb": 0.0023508071899414062
+    },
+    "building_load": {
+      "rows": 100,
+      "columns": 8,
+      "file": "building_load_mini.csv.gz",
+      "size_mb": 0.002513885498046875
+    },
+    "refrigerant_charge": {
+      "rows": 100,
+      "columns": 8,
+      "file": "refrigerant_charge_mini.csv.gz",
+      "size_mb": 0.0024967193603515625
+    },
+    "molecular_refrigerant": {
+      "rows": 100,
+      "columns": 8,
+      "file": "molecular_refrigerant_mini.csv.gz",
+      "size_mb": 0.0024852752685546875
+    },
+    "gnn_topology": {
+      "rows": 100,
+      "columns": 8,
+      "file": "gnn_topology_mini.csv.gz",
+      "size_mb": 0.0006341934204101562
+    },
+    "data_generation": {
+      "rows": 100,
+      "columns": 8,
+      "file": "data_generation_mini.csv.gz",
+      "size_mb": 0.0016880035400390625
+    },
+    "enhanced_data": {
+      "rows": 100,
+      "columns": 8,
+      "file": "enhanced_data_mini.csv.gz",
+      "size_mb": 0.002460479736328125
+    },
+    "physics_validation": {
+      "rows": 100,
+      "columns": 8,
+      "file": "physics_validation_mini.csv.gz",
+      "size_mb": 0.0025386810302734375
+    },
+    "enhanced_validator": {
+      "rows": 100,
+      "columns": 8,
+      "file": "enhanced_validator_mini.csv.gz",
+      "size_mb": 0.0023775100708007812
+    }
+  },
+  "total_size_mb": 0.06287193298339844,
+  "kaggle_ready": true
+}

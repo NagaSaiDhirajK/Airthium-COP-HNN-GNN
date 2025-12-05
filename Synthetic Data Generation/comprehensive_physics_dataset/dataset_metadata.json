@@ -1,0 +1,364 @@
+{
+  "dataset_name": "AIRTHIUM Comprehensive Physics Dataset",
+  "version": "2.0",
+  "source": "ALL 26 physics models converted to optimal format",
+  "total_cycles": 2600,
+  "trajectory_length": 100,
+  "max_features": 8,
+  "models_included": [
+    "hamiltonian",
+    "temporal",
+    "component_interactions",
+    "phase_space",
+    "sensor_noise",
+    "fouling_aging",
+    "compressor_wear",
+    "fault_injection",
+    "control_system",
+    "startup_shutdown",
+    "part_load_cycling",
+    "cycle_generator",
+    "improved_cycle_generator",
+    "thermodynamic_properties",
+    "component_models",
+    "performance_maps",
+    "ambient_conditions",
+    "indoor_performance",
+    "building_load",
+    "refrigerant_charge",
+    "molecular_refrigerant",
+    "gnn_topology",
+    "data_generation",
+    "enhanced_data",
+    "physics_validation",
+    "enhanced_validator"
+  ],
+  "model_mapping": {
+    "hamiltonian": {
+      "start_idx": 0,
+      "end_idx": 100,
+      "feature_names": [
+        "q1_temp",
+        "q2_pressure",
+        "p1_volume",
+        "p2_entropy",
+        "hamiltonian",
+        "dH_dt",
+        "energy_conservation"
+      ],
+      "n_features": 7
+    },
+    "temporal": {
+      "start_idx": 100,
+      "end_idx": 200,
+      "feature_names": [
+        "time",
+        "temperature",
+        "pressure",
+        "flow_rate",
+        "efficiency",
+        "dynamics"
+      ],
+      "n_features": 6
+    },
+    "component_interactions": {
+      "start_idx": 200,
+      "end_idx": 300,
+      "feature_names": [
+        "comp_temp",
+        "cond_temp",
+        "evap_temp",
+        "exp_temp",
+        "heat_flow",
+        "mass_flow",
+        "pressure_drop",
+        "interaction"
+      ],
+      "n_features": 8
+    },
+    "phase_space": {
+      "start_idx": 300,
+      "end_idx": 400,
+      "feature_names": [
+        "q1",
+        "q2",
+        "p1",
+        "p2"
+      ],
+      "n_features": 4
+    },
+    "sensor_noise": {
+      "start_idx": 400,
+      "end_idx": 500,
+      "feature_names": [
+        "true_value",
+        "measured_value",
+        "noise",
+        "bias",
+        "uncertainty"
+      ],
+      "n_features": 5
+    },
+    "fouling_aging": {
+      "start_idx": 500,
+      "end_idx": 600,
+      "feature_names": [
+        "degradation_factor",
+        "efficiency_loss",
+        "wear_rate",
+        "remaining_life"
+      ],
+      "n_features": 4
+    },
+    "compressor_wear": {
+      "start_idx": 600,
+      "end_idx": 700,
+      "feature_names": [
+        "degradation_factor",
+        "efficiency_loss",
+        "wear_rate",
+        "remaining_life"
+      ],
+      "n_features": 4
+    },
+    "fault_injection": {
+      "start_idx": 700,
+      "end_idx": 800,
+      "feature_names": [
+        "fault_type",
+        "severity",
+        "duration",
+        "impact",
+        "detection"
+      ],
+      "n_features": 5
+    },
+    "control_system": {
+      "start_idx": 800,
+      "end_idx": 900,
+      "feature_names": [
+        "setpoint",
+        "measured",
+        "error",
+        "control_output",
+        "integral",
+        "derivative"
+      ],
+      "n_features": 6
+    },
+    "startup_shutdown": {
+      "start_idx": 900,
+      "end_idx": 1000,
+      "feature_names": [
+        "phase",
+        "temperature",
+        "pressure",
+        "power",
+        "settling_time"
+      ],
+      "n_features": 5
+    },
+    "part_load_cycling": {
+      "start_idx": 1000,
+      "end_idx": 1100,
+      "feature_names": [
+        "load_fraction",
+        "on_off_state",
+        "cycle_frequency",
+        "efficiency"
+      ],
+      "n_features": 4
+    },
+    "cycle_generator": {
+      "start_idx": 1100,
+      "end_idx": 1200,
+      "feature_names": [
+        "T1_evap",
+        "T2_comp",
+        "T3_cond",
+        "T4_exp",
+        "work",
+        "heat"
+      ],
+      "n_features": 6
+    },
+    "improved_cycle_generator": {
+      "start_idx": 1200,
+      "end_idx": 1300,
+      "feature_names": [
+        "T1_evap",
+        "T2_comp",
+        "T3_cond",
+        "T4_exp",
+        "work",
+        "heat"
+      ],
+      "n_features": 6
+    },
+    "thermodynamic_properties": {
+      "start_idx": 1300,
+      "end_idx": 1400,
+      "feature_names": [
+        "temperature",
+        "pressure",
+        "enthalpy",
+        "entropy",
+        "density",
+        "heat_capacity",
+        "quality"
+      ],
+      "n_features": 7
+    },
+    "component_models": {
+      "start_idx": 1400,
+      "end_idx": 1500,
+      "feature_names": [
+        "comp_temp",
+        "cond_temp",
+        "evap_temp",
+        "exp_temp",
+        "heat_flow",
+        "mass_flow",
+        "pressure_drop",
+        "interaction"
+      ],
+      "n_features": 8
+    },
+    "performance_maps": {
+      "start_idx": 1500,
+      "end_idx": 1600,
+      "feature_names": [
+        "load",
+        "efficiency",
+        "power",
+        "capacity",
+        "cop"
+      ],
+      "n_features": 5
+    },
+    "ambient_conditions": {
+      "start_idx": 1600,
+      "end_idx": 1700,
+      "feature_names": [
+        "outdoor_temp",
+        "humidity",
+        "wind_speed",
+        "solar_irradiance",
+        "pressure",
+        "season"
+      ],
+      "n_features": 6
+    },
+    "indoor_performance": {
+      "start_idx": 1700,
+      "end_idx": 1800,
+      "feature_names": [
+        "load",
+        "efficiency",
+        "power",
+        "capacity",
+        "cop"
+      ],
+      "n_features": 5
+    },
+    "building_load": {
+      "start_idx": 1800,
+      "end_idx": 1900,
+      "feature_names": [
+        "heating_load",
+        "cooling_load",
+        "occupancy",
+        "internal_gains",
+        "setpoint"
+      ],
+      "n_features": 5
+    },
+    "refrigerant_charge": {
+      "start_idx": 1900,
+      "end_idx": 2000,
+      "feature_names": [
+        "charge_level",
+        "subcooling",
+        "superheat",
+        "efficiency"
+      ],
+      "n_features": 4
+    },
+    "molecular_refrigerant": {
+      "start_idx": 2000,
+      "end_idx": 2100,
+      "feature_names": [
+        "molecular_weight",
+        "critical_temp",
+        "critical_pressure",
+        "acentric_factor",
+        "gwp",
+        "odp"
+      ],
+      "n_features": 6
+    },
+    "gnn_topology": {
+      "start_idx": 2100,
+      "end_idx": 2200,
+      "feature_names": [
+        "connectivity",
+        "centrality",
+        "clustering",
+        "path_length",
+        "efficiency"
+      ],
+      "n_features": 5
+    },
+    "data_generation": {
+      "start_idx": 2200,
+      "end_idx": 2300,
+      "feature_names": [
+        "feature1",
+        "feature2",
+        "feature3",
+        "feature4"
+      ],
+      "n_features": 4
+    },
+    "enhanced_data": {
+      "start_idx": 2300,
+      "end_idx": 2400,
+      "feature_names": [
+        "feature1",
+        "feature2",
+        "feature3",
+        "feature4"
+      ],
+      "n_features": 4
+    },
+    "physics_validation": {
+      "start_idx": 2400,
+      "end_idx": 2500,
+      "feature_names": [
+        "accuracy",
+        "precision",
+        "recall",
+        "f1_score"
+      ],
+      "n_features": 4
+    },
+    "enhanced_validator": {
+      "start_idx": 2500,
+      "end_idx": 2600,
+      "feature_names": [
+        "accuracy",
+        "precision",
+        "recall",
+        "f1_score"
+      ],
+      "n_features": 4
+    }
+  },
+  "optimization": {
+    "fixed_trajectory_length": true,
+    "multi_modal": true,
+    "gpu_tensor_format": true,
+    "pytorch_compatible": true,
+    "compression": "gzip level 9"
+  }
+}
