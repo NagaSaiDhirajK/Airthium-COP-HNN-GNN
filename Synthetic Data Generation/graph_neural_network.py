@@ -349,12 +349,12 @@ class HeatPumpGNN(nn.Module):
             hidden_dim, hidden_dim, hidden_dim
         )
         
-        # Graph pooling
-        self.global_pool = nn.ModuleDict({
-            'mean': lambda x, batch: global_mean_pool(x, batch),
-            'max': lambda x, batch: global_max_pool(x, batch),
-            'add': lambda x, batch: global_add_pool(x, batch)
-        })
+        # Graph pooling - store as dict of functions (not ModuleDict)
+        self.global_pool = {
+            'mean': global_mean_pool,
+            'max': global_max_pool,
+            'add': global_add_pool
+        }
         
         # COP prediction head
         self.cop_predictor = nn.Sequential(

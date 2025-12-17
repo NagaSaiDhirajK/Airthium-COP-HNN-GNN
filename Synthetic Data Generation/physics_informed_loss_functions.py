@@ -58,6 +58,12 @@ class PhysicsInformedLoss(nn.Module):
         self.mse_loss = nn.MSELoss()
         self.mae_loss = nn.L1Loss()
         
+        # Initialize component loss functions
+        self.hamiltonian_loss_fn = HamiltonianConservationLoss()
+        self.thermodynamic_loss_fn = ThermodynamicConstraintsLoss()
+        self.heat_pump_loss_fn = HeatPumpPhysicsLoss()
+        self.graph_loss_fn = GraphConsistencyLoss()
+        
     def forward(self, 
                 predictions: torch.Tensor,
                 targets: torch.Tensor,
@@ -84,10 +90,10 @@ class PhysicsInformedLoss(nn.Module):
         data_loss = self.mse_loss(predictions, targets)
         
         # Physics constraint losses
-        hamiltonian_loss = self.hamiltonian_conservation_loss(hamiltonian_data)
-        thermodynamic_loss = self.thermodynamic_constraints_loss(thermodynamic_data)
-        heat_pump_loss = self.heat_pump_physics_loss(heat_pump_data, predictions)
-        graph_loss = self.graph_consistency_loss(graph_data)
+        hamiltonian_loss = self.hamiltonian_loss_fn(hamiltonian_data)
+        thermodynamic_loss = self.thermodynamic_loss_fn(thermodynamic_data)
+        heat_pump_loss = self.heat_pump_loss_fn(heat_pump_data, predictions)
+        graph_loss = self.graph_loss_fn(graph_data)
         
         # Total physics-informed loss
         total_loss = (self.lambda_data * data_loss +
