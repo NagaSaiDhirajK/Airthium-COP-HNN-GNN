@@ -219,7 +219,8 @@ class HeatPumpHNN(nn.Module):
                  phase_space_dim: int = 8,  # 4 coordinates + 4 momenta
                  hidden_dims: List[int] = [128, 256, 128],
                  cop_hidden_dims: List[int] = [64, 32],
-                 dt: float = 0.01):
+                 dt: float = 0.01,
+                 input_dim: int = 8):  # Add input_dim parameter
         """
         Initialize Heat Pump HNN.
         
@@ -228,6 +229,7 @@ class HeatPumpHNN(nn.Module):
             hidden_dims: Hidden dimensions for Hamiltonian network
             cop_hidden_dims: Hidden dimensions for COP prediction network
             dt: Integration time step
+            input_dim: Dimension of input features
         """
         super(HeatPumpHNN, self).__init__()
         
@@ -235,6 +237,7 @@ class HeatPumpHNN(nn.Module):
         self.q_dim = phase_space_dim // 2
         self.p_dim = phase_space_dim // 2
         self.dt = dt
+        self.input_dim = input_dim
         
         # Hamiltonian network
         self.hamiltonian_net = HamiltonianNetwork(
@@ -251,7 +254,7 @@ class HeatPumpHNN(nn.Module):
         
         # Feature mapping network (maps input features to phase space)
         self.feature_mapper = nn.Sequential(
-            nn.Linear(8, 32),  # Input features to intermediate
+            nn.Linear(input_dim, 32),  # Input features to intermediate
             nn.Tanh(),
             nn.Linear(32, phase_space_dim),  # To phase space
             nn.Tanh()
