@@ -1,8 +1,18 @@
-# Stratified Sampling Strategy for COP Distribution
+# ⚠️ DEPRECATED - INCORRECT APPROACH
 
-## Overview
+> **This document describes an INCORRECT approach and should NOT be used.**
+>
+> **Correct approach**: See [`COMPREHENSIVE_PHYSICS_MODEL_INTEGRATION_PLAN.md`](COMPREHENSIVE_PHYSICS_MODEL_INTEGRATION_PLAN.md)
+>
+> **Why this was wrong**: Pre-defining COP strata artificially manipulates the distribution instead of letting physics models generate COP naturally.
 
-The goal is to generate training data with a **realistic and well-spread COP distribution** that represents real-world heat pump operation. Simply random sampling often produces skewed distributions clustering around "average" conditions.
+---
+
+# ~~Stratified Sampling Strategy for COP Distribution~~ (DEPRECATED)
+
+## ~~Overview~~
+
+~~The goal is to generate training data with a **realistic and well-spread COP distribution** that represents real-world heat pump operation. Simply random sampling often produces skewed distributions clustering around "average" conditions.~~
 
 ---
 
