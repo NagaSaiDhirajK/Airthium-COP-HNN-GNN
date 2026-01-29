@@ -1,0 +1,141 @@
+{
+  "cycle_id": "cycle_00008",
+  "timestamp": "2026-01-29T06:54:52.918823",
+  "layer1_inputs": {
+    "T_ambient_K": 264.9949927266751,
+    "humidity": 0.7078029296102335,
+    "season": "summer",
+    "T_indoor_K": 292.9400935775192,
+    "wind_speed_m_s": 5.954292748741323,
+    "solar_irradiance_W_m2": 460.59445309922535,
+    "barometric_pressure_Pa": 99388.07508309107,
+    "building_load_kW": 13.660197851995932,
+    "occupancy_factor": 0.6489997049084206,
+    "internal_gains_kW": 1.1520561438973238,
+    "refrigerant": "R410A",
+    "design_capacity_kW": 8.320064429289829,
+    "nominal_charge_kg": 3.1251758966512537,
+    "compressor_type": "scroll",
+    "mode": "heating",
+    "current_load_kW": 5.318337165573055,
+    "part_load_ratio": 0.6392182669704409,
+    "age_hours": 2594.177950630221,
+    "charge_percentage": 72.74819983889056,
+    "maintenance_quality": "poor",
+    "setpoint_temp_K": 294.00560325400033,
+    "superheat_setpoint_K": 10.111706348338728,
+    "subcooling_setpoint_K": 4.137549944246581
+  },
+  "layer2_physics_outputs": {
+    "T_evap_K": 238.93174655878627,
+    "T_cond_K": 327.72523856736433,
+    "P_evap_Pa": 226415.7021415606,
+    "P_cond_Pa": 3407227.1255362974,
+    "h1_J_kg": 417351.1911650286,
+    "h2_J_kg": 480634.24828938185,
+    "h3_J_kg": 295679.03418854857,
+    "h4_J_kg": 295679.03418854857,
+    "s1_J_kgK": 1834.2654921062926,
+    "s2_J_kgK": 1900,
+    "s3_J_kgK": 1200,
+    "s4_J_kgK": 1250,
+    "mass_flow_kg_s": 0.09113746135763529,
+    "evap_fouling_resistance": 0.00015912858704035589,
+    "cond_fouling_resistance": 4.060958538706303e-05,
+    "evap_effectiveness_reduction_pct": 1.9891073380044484,
+    "cond_effectiveness_reduction_pct": 1.0152396346765757,
+    "bearing_wear_pct": 1.5981925033754179,
+    "valve_leakage_pct": 1.3798690194630012,
+    "oil_quality_index": 0.9241280660511734,
+    "efficiency_degradation_pct": 2.6869982598175803,
+    "vibration_mm_s": 2.2554315549052255,
+    "actual_charge_pct": 72.74819983889056,
+    "subcooling_K": 0.0,
+    "superheat_K": 22.351080096665665,
+    "cop_factor_charge": 1.1,
+    "has_fault": false,
+    "fault_type": "none",
+    "fault_severity": 0.0,
+    "fault_cop_factor": 1.0,
+    "cooling_capacity_modifier": 1.0,
+    "heating_capacity_modifier": 1.0,
+    "cooling_cop_modifier": 1.0,
+    "heating_cop_modifier": 1.0,
+    "frost_formation_risk": 0.0,
+    "wet_bulb_temp_K": 263.23162521679996,
+    "dew_point_temp_K": 260.64325894289374,
+    "air_density_kg_m3": 1.3056524468369843,
+    "compressor_speed_pct": 76.43447217947639,
+    "expansion_valve_opening_pct": 46.20207593414486,
+    "evap_fan_speed_pct": 79.17654800911322,
+    "cond_fan_speed_pct": 80.98045667426102,
+    "control_response_time_s": 83.95172276981103,
+    "control_overshoot_pct": 4.793934868406413,
+    "pid_error": 0.0,
+    "hamiltonian_energy_J": -615227.9459096213,
+    "kinetic_energy_J": 0.00854663669704265,
+    "potential_energy_J": 0.21355891327722237,
+    "energy_drift": 0.001,
+    "thermal_coupling_strength": 0.08904859954110284,
+    "mass_coupling_strength": 0.9237230611612006,
+    "network_stability_margin": 0.02,
+    "cycling_losses_pct": 1.469902868458378,
+    "part_load_efficiency": 0.6128135405108006,
+    "on_time_fraction": 0.66695396971836,
+    "T_evap_measured_K": 238.82043816793967,
+    "T_cond_measured_K": 327.2681484759837,
+    "P_evap_measured_Pa": 650000,
+    "P_cond_measured_Pa": 2100000,
+    "measurement_uncertainty_pct": 1.5
+  },
+  "layer3_derived_features": {
+    "Q_evap_kW": 11.088891504744085,
+    "Q_cond_kW": 16.856348678007855,
+    "W_comp_kW": 5.767457173263771,
+    "eta_comp_actual": 0.8271605147915505,
+    "eta_comp_isentropic": 0.8685185405311281,
+    "pressure_ratio": 15.048546073920333,
+    "carnot_cop_heating": 3.6908700306065656,
+    "carnot_cop_cooling": 2.6908700306065656,
+    "carnot_efficiency": 0.5118128594770215,
+    "total_efficiency_loss_pct": 3.722384391314872,
+    "total_capacity_loss_pct": 1.502173486340512,
+    "load_match_factor": 1.233975441691346,
+    "capacity_utilization": 0.6392182669704409
+  },
+  "layer4_targets": {
+    "COP_heating": 1.889034744322788,
+    "COP_cooling": 1.2426950657360871,
+    "energy_balance_error_pct": 0.0,
+    "below_carnot_limit": "True",
+    "entropy_generation_positive": "True",
+    "mass_balance_satisfied": true,
+    "is_physically_valid": true
+  },
+  "temporal_shapes": {
+    "T_evap": [
+      100
+    ],
+    "hamiltonian_q": [
+      100,
+      4
+    ],
+    "control_signals": [
+      100,
+      4
+    ]
+  },
+  "gnn_shapes": {
+    "node_features": [
+      10,
+      35
+    ],
+    "edge_features": [
+      11,
+      12
+    ],
+    "graph_features": [
+      50
+    ]
+  }
+}
