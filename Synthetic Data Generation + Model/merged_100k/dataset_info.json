@@ -1,0 +1,44 @@
+{
+  "n_cycles": 100000,
+  "n_timesteps": 100,
+  "refrigerants": [
+    "R410A",
+    "R134a",
+    "R290"
+  ],
+  "physics_models_loaded": {},
+  "total_models_loaded": 17,
+  "cop_stats": {
+    "min": 1.8,
+    "max": 8.0,
+    "mean": 4.712251945013006,
+    "std": 1.6017958699628025,
+    "median": 4.665232165323029
+  },
+  "carnot_efficiency_stats": {
+    "min": 0.08852459016393444,
+    "max": 0.9499648174522624,
+    "mean": 0.5863281781054868
+  },
+  "merged_from": 10,
+  "batch_sources": [
+    "batch_01",
+    "batch_02",
+    "batch_03",
+    "batch_04",
+    "batch_05",
+    "batch_06",
+    "batch_07",
+    "batch_08",
+    "batch_09",
+    "batch_10"
+  ],
+  "generated_at": "2026-01-29T07:54:28.247803",
+  "architecture": "4-layer (inputs\u2192physics\u2192derived\u2192targets)",
+  "features": {
+    "hnn_temporal": "100 timesteps \u00d7 14 channels",
+    "gnn_nodes": "10 nodes \u00d7 35 features",
+    "gnn_edges": "11 edges \u00d7 12 features",
+    "gnn_graph": "50 features"
+  }
+}

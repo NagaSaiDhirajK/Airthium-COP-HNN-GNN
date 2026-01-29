@@ -75,9 +75,19 @@ class ComprehensiveDataset(Dataset):
     def _load_data(self):
         """Load data from HDF5 file."""
         h5_path = self.data_dir / 'physics_data.h5'
+        info_path = self.data_dir / 'dataset_info.json'
         
         with h5py.File(h5_path, 'r') as f:
-            n_cycles = f.attrs['n_cycles']
+            # Try to get n_cycles from HDF5 attributes first, then JSON, then infer from data
+            if 'n_cycles' in f.attrs:
+                n_cycles = f.attrs['n_cycles']
+            elif info_path.exists():
+                with open(info_path, 'r') as jf:
+                    info = json.load(jf)
+                    n_cycles = info['n_cycles']
+            else:
+                # Infer from dataset shape
+                n_cycles = f['targets/COP_heating'].shape[0]
             
             # Load targets
             self.cop_heating = f['targets/COP_heating'][:]

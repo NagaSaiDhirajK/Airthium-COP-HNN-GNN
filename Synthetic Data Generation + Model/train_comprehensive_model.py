@@ -585,9 +585,34 @@ def main():
                         help='Device: auto, cuda, or cpu')
     args = parser.parse_args()
     
-    # Determine device
+    # Determine device with robust CUDA testing
+    def test_cuda_kernels():
+        """Test if CUDA kernels are available for this GPU."""
+        try:
+            # Try a simple CUDA operation
+            test_tensor = torch.randn(10, 10, device='cuda')
+            _ = torch.mm(test_tensor, test_tensor)
+            return True
+        except RuntimeError as e:
+            if 'no kernel image' in str(e).lower():
+                return False
+            raise
+    
     if args.device == 'auto':
-        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        if torch.cuda.is_available():
+            print(f"[INFO] CUDA available: {torch.cuda.get_device_name(0)}")
+            print(f"       Testing CUDA kernel compatibility...")
+            if test_cuda_kernels():
+                device = 'cuda'
+                print(f"       ✓ CUDA kernels working")
+            else:
+                device = 'cpu'
+                print(f"       ✗ CUDA kernels not available for this GPU architecture")
+                print(f"       [NOTE] RTX 50-series (Blackwell) requires PyTorch nightly with CUDA 12.6+")
+                print(f"       [TIP] Install: pip install --pre torch --index-url https://download.pytorch.org/whl/nightly/cu126")
+                print(f"       Falling back to CPU training...")
+        else:
+            device = 'cpu'
     else:
         device = args.device
     
@@ -596,7 +621,7 @@ def main():
         print(f"       CUDA Version: {torch.version.cuda}")
         print(f"       Memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
     else:
-        print("[INFO] Using CPU (GPU not available or not requested)")
+        print("[INFO] Using CPU")
     
     # Create data loaders
     print("[INFO] Loading data...")
