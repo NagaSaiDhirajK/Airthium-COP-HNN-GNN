@@ -1,0 +1,55 @@
+{
+  "n_cycles": 1000,
+  "n_timesteps": 100,
+  "refrigerants": [
+    "R410A",
+    "R134a",
+    "R290"
+  ],
+  "physics_models_loaded": {
+    "RefrigerantProperties": true,
+    "HeatExchangerFoulingModel": true,
+    "CompressorWearModel": true,
+    "RefrigerantChargeModel": true,
+    "FaultInjectionModel": true,
+    "HamiltonianMechanicsModel": true,
+    "ControlSystemModel": true,
+    "TemporalDynamicsGenerator": true,
+    "AmbientConditionModel": true,
+    "MultiZoneBuildingModel": true,
+    "ComponentInteractionModel": true,
+    "HeatPumpGraphGenerator": true,
+    "PerformanceMapModel": false,
+    "CompressorModel": true,
+    "HeatExchangerModel": true,
+    "ExpansionValveModel": false,
+    "SensorNoiseModel": true,
+    "PartLoadCyclingModel": true,
+    "PhaseSpaceTrajectories": false,
+    "PhysicsValidationSystem": false,
+    "DigitalTwinValidation": false,
+    "IndoorPerformanceModel": true
+  },
+  "total_models_loaded": 17,
+  "cop_stats": {
+    "min": 1.8,
+    "max": 8.0,
+    "mean": 4.680161539067483,
+    "std": 1.3650036990704695,
+    "median": 4.611065531402702
+  },
+  "carnot_efficiency_stats": {
+    "min": 0.2222417153730654,
+    "max": 0.9481294511232092,
+    "mean": 0.5983465498959274
+  },
+  "generation_time_seconds": 12.117149114608765,
+  "generated_at": "2026-01-29T16:59:03.082281",
+  "architecture": "4-layer (inputs\u2192physics\u2192derived\u2192targets)",
+  "features": {
+    "hnn_temporal": "100 timesteps \u00d7 14 channels",
+    "gnn_nodes": "10 nodes \u00d7 35 features",
+    "gnn_edges": "11 edges \u00d7 12 features",
+    "gnn_graph": "50 features"
+  }
+}

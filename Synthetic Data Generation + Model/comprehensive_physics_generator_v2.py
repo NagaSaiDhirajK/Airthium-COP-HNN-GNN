@@ -1273,19 +1273,28 @@ class ComprehensivePhysicsGenerator:
     def _generate_temporal_dynamics(self, inputs: Layer1Inputs,
                                      physics: Layer2PhysicsOutputs,
                                      derived: Layer3DerivedFeatures) -> Dict[str, np.ndarray]:
-        """Generate 100-timestep temporal dynamics using physics models."""
+        """
+        Generate 100-timestep temporal dynamics using physics models.
         
-        t = np.linspace(0, 1, self.N_TIMESTEPS)
-        tau = 0.15  # Time constant
-        startup_factor = 1 - np.exp(-t / tau)
+        IMPORTANT: For Hamiltonian phase space, we generate CLOSED CYCLIC ORBITS
+        that represent the thermodynamic cycle:
+        - Evaporation → Compression → Condensation → Expansion → back to Evaporation
+        
+        This matches the Greydanus HNN paper where oscillatory systems (mass-spring,
+        pendulum) show closed orbits in (q, p) phase space.
+        """
+        
+        t = np.linspace(0, 2 * np.pi, self.N_TIMESTEPS)  # Full cycle (0 to 2π)
+        tau = 0.15  # Time constant for startup envelope
+        startup_factor = 1 - np.exp(-np.linspace(0, 1, self.N_TIMESTEPS) / tau)
         
         temporal = {}
         
-        # Temperature trajectories
+        # Temperature trajectories (for general monitoring - uses startup transient)
         temporal['T_evap'] = physics.T_evap_K + physics.superheat_K * startup_factor
         temporal['T_cond'] = 273.15 + (physics.T_cond_K - 273.15) * startup_factor
         
-        # Pressure trajectories  
+        # Pressure trajectories
         temporal['P_evap'] = 101325 + (physics.P_evap_Pa - 101325) * startup_factor
         temporal['P_cond'] = 101325 + (physics.P_cond_Pa - 101325) * startup_factor
         
@@ -1299,47 +1308,67 @@ class ComprehensivePhysicsGenerator:
         temporal['superheat'] = physics.superheat_K * (0.5 + 0.5 * startup_factor)
         temporal['subcooling'] = physics.subcooling_K * startup_factor
         
-        # Hamiltonian phase space (using model or fallback)
-        if self.hamiltonian_model:
-            try:
-                system = self.hamiltonian_model.create_hamiltonian_system('compressor', {})
-                initial_cond = {
-                    'temperature_K': physics.T_evap_K + 10,
-                    'pressure_Pa': physics.P_evap_Pa,
-                    'volume_m3': 0.001,
-                    'entropy_J_per_K': 1000.0
-                }
-                ham_state = self.hamiltonian_model.initialize_hamiltonian_state(system, initial_cond)
-                
-                # Simple evolution
-                q = np.column_stack([
-                    temporal['T_evap'] / 300,
-                    temporal['P_evap'] / 1e6,
-                    temporal['mass_flow'] / 0.1,
-                    startup_factor
-                ])
-                p = np.gradient(q, axis=0)
-                KE = 0.5 * np.sum(p**2, axis=1)
-                PE = 0.5 * np.sum(q**2, axis=1)
-                H = KE + PE
-            except Exception:
-                q = np.column_stack([
-                    temporal['T_evap'] / 300,
-                    temporal['P_evap'] / 1e6,
-                    temporal['mass_flow'] / 0.1,
-                    startup_factor
-                ])
-                p = np.gradient(q, axis=0)
-                H = 0.5 * np.sum(p**2 + q**2, axis=1)
-        else:
-            q = np.column_stack([
-                temporal['T_evap'] / 300,
-                temporal['P_evap'] / 1e6,
-                temporal['mass_flow'] / 0.1,
-                startup_factor
-            ])
-            p = np.gradient(q, axis=0)
-            H = 0.5 * np.sum(p**2 + q**2, axis=1)
+        # =====================================================================
+        # HAMILTONIAN PHASE SPACE - CLOSED THERMODYNAMIC CYCLES
+        # =====================================================================
+        # For a heat pump cycle (evaporation → compression → condensation → expansion),
+        # we model this as a coupled oscillator system in generalized coordinates:
+        #   q1: Temperature-like coordinate (normalized T)
+        #   q2: Pressure-like coordinate (normalized P)
+        #   q3: Volume-like coordinate (normalized V)
+        #   q4: Entropy-like coordinate (normalized S)
+        #
+        # Using sinusoidal basis functions creates CLOSED ORBITS in phase space,
+        # matching the Greydanus HNN paper's mass-spring and pendulum examples.
+        # =====================================================================
+        
+        # System-specific frequencies (related to cycle characteristics)
+        # Higher pressure ratio → faster dynamics
+        pressure_ratio = physics.P_cond_Pa / max(physics.P_evap_Pa, 100000)
+        omega_base = 1.0 + 0.1 * (pressure_ratio - 3.0)  # Base frequency
+        
+        # Phase offsets for 4-stage cycle: evap(0°) → comp(90°) → cond(180°) → exp(270°)
+        phase_T = 0.0                    # Temperature leads
+        phase_P = np.pi / 4              # Pressure lags by 45°
+        phase_V = np.pi / 2              # Volume lags by 90° (compression work)
+        phase_S = 3 * np.pi / 4          # Entropy lags by 135°
+        
+        # Amplitudes from operating conditions (normalized)
+        A_T = (physics.T_cond_K - physics.T_evap_K) / 100  # Temperature swing
+        A_P = np.log10(pressure_ratio)                      # Pressure ratio (log scale)
+        A_V = inputs.part_load_ratio                        # Volume variation
+        A_S = derived.carnot_efficiency                     # Entropy generation
+        
+        # Add some realistic variation
+        noise_scale = 0.02
+        
+        # Generate CYCLIC position coordinates q(t) = A * cos(ωt + φ)
+        # These trace CLOSED ORBITS when plotted in phase space
+        q1 = A_T * np.cos(omega_base * t + phase_T) + np.random.normal(0, noise_scale, self.N_TIMESTEPS)
+        q2 = A_P * np.cos(omega_base * t + phase_P) + np.random.normal(0, noise_scale, self.N_TIMESTEPS)
+        q3 = A_V * np.cos(omega_base * t + phase_V) + np.random.normal(0, noise_scale, self.N_TIMESTEPS)
+        q4 = A_S * np.cos(omega_base * t + phase_S) + np.random.normal(0, noise_scale, self.N_TIMESTEPS)
+        
+        # Conjugate momenta p = dq/dt = -A*ω*sin(ωt + φ)
+        # For exact Hamiltonian mechanics: p = ∂L/∂q̇
+        p1 = -A_T * omega_base * np.sin(omega_base * t + phase_T)
+        p2 = -A_P * omega_base * np.sin(omega_base * t + phase_P)
+        p3 = -A_V * omega_base * np.sin(omega_base * t + phase_V)
+        p4 = -A_S * omega_base * np.sin(omega_base * t + phase_S)
+        
+        # Stack into coordinate matrices
+        q = np.column_stack([q1, q2, q3, q4])
+        p = np.column_stack([p1, p2, p3, p4])
+        
+        # Hamiltonian H = T + V = (1/2)Σpᵢ² + (1/2)Σωᵢ²qᵢ²
+        # For harmonic oscillator, H is CONSERVED along trajectories
+        KE = 0.5 * np.sum(p**2, axis=1)  # Kinetic energy
+        PE = 0.5 * omega_base**2 * np.sum(q**2, axis=1)  # Potential energy
+        H = KE + PE
+        
+        # Scale Hamiltonian to physical energy range
+        H_scale = physics.hamiltonian_energy_J / max(np.mean(H), 1e-6)
+        H = H * H_scale
         
         temporal['hamiltonian_q'] = q
         temporal['hamiltonian_p'] = p

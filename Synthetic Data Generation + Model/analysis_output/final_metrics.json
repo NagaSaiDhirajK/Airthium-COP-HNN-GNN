@@ -1,0 +1,10 @@
+{
+  "mae": 0.11849819980218979,
+  "rmse": 0.14900602686884862,
+  "r2": 0.9895833525397055,
+  "residual_mean": 0.014834372692273905,
+  "residual_std": 0.14826576621077017,
+  "carnot_compliant_pct": 85.3,
+  "mean_carnot_efficiency": 0.6669204537401159,
+  "max_carnot_efficiency": 2.1394834713983917
+}
